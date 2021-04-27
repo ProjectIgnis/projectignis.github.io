@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!--Add the style sheet-->
-<link id="theme" rel="stylesheet" type="text/css" href="dark-mode.css" />
+<link id="theme" rel="stylesheet" type="text/css" href="assets/css/dark-mode.css" />
 <script>
 function toggleTheme(sheet){
   document.getElementById('theme').setAttribute('href', sheet);
@@ -12,7 +12,7 @@ function toggleTheme(sheet){
 
 window.onload = _ =>
  toggleTheme(
-  localStorage.getItem("themePref") || "dark-mode.css"
+  localStorage.getItem("themePref") || "assets/css/dark-mode.css"
  );
 </script>
 <link rel="icon" href="https://avatars.githubusercontent.com/u/58537850">
@@ -50,15 +50,15 @@ window.onload = _ =>
 <!--Links topnav-->
 <div class="topnav">
 	<div style="float:left;margin-left:4px;">
-	<button class="btnStyle" onclick="toggleTheme('dark-mode.css')">Dark Mode</button>
-	<button class="btnStyle" onclick="toggleTheme('blind-mode.css')">Light Mode</button>
+	<button class="btnStyle" onclick="toggleTheme('assets/css/dark-mode.css')">Dark Mode</button>
+	<button class="btnStyle" onclick="toggleTheme('assets/css/blind-mode.css')">Light Mode</button>
 	</div>
 	<!--<a href="#tools">Tools</a>-->
-	<a class="active" href="ignis_downloads.html">Download</a>
-	<a href="ignis_faq.html">FAQ</a>
+	<a class="active" href="download.html">Download</a>
+	<a href="faq.html">FAQ</a>
 	<!--<a href="#news">News</a>-->
 	<!--<a href="#forums">Forums</a>-->
-	<a href="ignis_home.html">Home</a>
+	<a href="index.html">Home</a>
 </div>
 
 
@@ -72,7 +72,7 @@ window.onload = _ =>
 
 <!--Windows-->
 <button class="collapsebar">Windows</button>
-<div class="content"><img src="https://cdn.discordapp.com/attachments/792076525083033630/792099913029779496/winlogo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
+<div class="content"><img src="assets/img/windows_logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
 <p style="text-indent:0px;margin-top:20px;font-size:22px;">
 ● Windows 2000 Service Pack 1 or later, 32-bit or 64-bit<br>
 ● DirectX 9 or OpenGL 1.0+ supporting graphics driver<br>
@@ -100,7 +100,7 @@ Select one of the following download options. They have the same features and cu
 
 <!--Mac-->
 <button class="collapsebar">Mac</button>
-<div class="content"><img src="https://cdn.discordapp.com/attachments/792076525083033630/792099994487226429/maclogo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
+<div class="content"><img src="/assets/img/macos_logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
 <p style="text-indent:0px;margin-top:20px;font-size:22px;">
 ● macOS 10.11 or later<br>
 ● OpenGL 1.0+ supporting graphics card<br>
@@ -118,7 +118,7 @@ Download and run the following. You may need to allow unidentified developers in
 
 <!--Linux-->
 <button class="collapsebar">Linux</button>
-<div class="content"><img src="https://cdn.discordapp.com/attachments/792076525083033630/792100077421592637/linlogo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
+<div class="content"><img src="/assets/img/linux_logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
 <p style="text-indent:0px;margin-top:20px;font-size:22px;">
 ● 64-bit GNU/Linux with X11 and glibc 2.27+ (e.g. Debian 10+, Ubuntu 18.04+, Fedora, CentOS 8+, rolling release distros like Arch)<br>
 ● OpenGL 1.0+ supporting graphics driver (e.g. mesa 20.0.6+)<br>
@@ -143,7 +143,7 @@ Download and run the following. You may need to allow unidentified developers in
 
 <!--Android-->
 <button class="collapsebar">Android</button>
-<div class="content"><img src="https://cdn.discordapp.com/attachments/792076525083033630/792100172443680798/Android_Logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
+<div class="content"><img src="/assets/img/android_logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
 <p style="text-indent:0px;margin-top:20px;font-size:22px;">
 ● Android 4.1 "Jelly Bean" or newer
 </p><hr>

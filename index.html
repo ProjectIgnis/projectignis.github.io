@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!--Add the style sheet-->
-<link id="theme" rel="stylesheet" type="text/css" href="dark-mode.css" />
+<link id="theme" rel="stylesheet" type="text/css" href="assets/css/dark-mode.css" />
 <script>
 function toggleTheme(sheet){
   document.getElementById('theme').setAttribute('href', sheet);
@@ -12,7 +12,7 @@ function toggleTheme(sheet){
 
 window.onload = _ =>
  toggleTheme(
-  localStorage.getItem("themePref") || "dark-mode.css"
+  localStorage.getItem("themePref") || "assets/css/dark-mode.css"
  );
 </script>
 <link rel="icon" href="https://avatars.githubusercontent.com/u/58537850">
@@ -35,21 +35,21 @@ window.onload = _ =>
 <!--Links topnav-->
 <div class="topnav">
 	<div style="float:left;margin-left:4px;">
-	<button class="btnStyle" onclick="toggleTheme('dark-mode.css')">Dark Mode</button>
-	<button class="btnStyle" onclick="toggleTheme('blind-mode.css')">Light Mode</button>
+	<button class="btnStyle" onclick="toggleTheme('assets/css/dark-mode.css')">Dark Mode</button>
+	<button class="btnStyle" onclick="toggleTheme('assets/css/blind-mode.css')">Light Mode</button>
 	</div>
 	<!--<a href="#tools">Tools</a>-->
-	<a href="ignis_downloads.html">Download</a>
-	<a href="ignis_faq.html">FAQ</a>
+	<a href="download.html">Download</a>
+	<a href="faq.html">FAQ</a>
 	<!--<a href="#news">News</a>-->
 	<!--<a href="#forums">Forums</a>-->
-	<a class="active" href="ignis_downloads.html">Home</a>
+	<a class="active" href="download.html">Home</a>
 </div>
 
 
 <!--About-->
 <div class="bgcolor">
-<!----><div style="vertical-align:bottom;text-align:center;"><img src="ignis_logo.png" style="width:250px;height:auto;padding-top:6%;"></div>
+<!----><div style="vertical-align:bottom;text-align:center;"><img src="assets/img/ignis_logo.png" style="width:250px;height:auto;padding-top:6%;"></div>
 <p class="ptab" style="padding-top:2%;">Hello, we are the Project Ignis team and our flagship is EDOPro, the open-source automatic duel simulator!</p>
 <p class="ptab">
 Although we may have suddenly appeared, we were formerly the team behind YGOPro Percy. We are happy to present you with EDOPro, an evolution of the YGOPro system, available on all major desktop platforms (Windows, Mac, Linux), with a plethora of new features and bug fixes.</p>
