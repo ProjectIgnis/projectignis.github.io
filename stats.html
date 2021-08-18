@@ -18,6 +18,7 @@ window.onload = _ =>
 <link rel="icon" href="https://avatars.githubusercontent.com/u/58537850">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
 <style>
 .zoom {
 	transition: all .5s ease; /*Return back to normal */
@@ -41,26 +42,17 @@ window.onload = _ =>
 	</div>
 	<!--<a href="#tools">Tools</a>-->
 	<a href="download.html">Download</a>
-	<a href="stats.html">Stats</a>
+	<a class="active" href="stats.html">Stats</a>
 	<a href="faq.html">FAQ</a>
 	<!--<a href="#news">News</a>-->
 	<!--<a href="#forums">Forums</a>-->
-	<a class="active" href="index.html">Home</a>
+	<a href="index.html">Home</a>
 </div>
 
 
 <!--About-->
 <div class="bgcolor">
-<!----><div style="vertical-align:bottom;text-align:center;"><img src="assets/img/ignis_logo.png" style="width:250px;height:auto;padding-top:6%;"></div>
-<p class="ptab" style="padding-top:2%;">Hello, we are the Project Ignis team and our flagship is EDOPro, the open-source automatic duel simulator!</p>
-<p class="ptab">
-Although we may have suddenly appeared, we were formerly the team behind YGOPro Percy. We are happy to present you with EDOPro, an evolution of the YGOPro system, available on all major desktop platforms (Windows, Mac, Linux), with a plethora of new features and bug fixes.</p>
-<p class="ptab">
-We are an international collaboration, staffed entirely by volunteers and we welcome support on our projects. We have come so far, as originally, we were just scattered duelists who used the former YGOPro Percy. As time went on, we grew to became members of the community, to the point of maintaining our own client for the simulator we love that brought us together.</p>
-<p class="ptab">
-Ignis is the fire and light of knowledge passed from the gods to humanity in Greco-Roman mythology. This represents our vision for all of our projects and work, and recognizes the contribution of every individual on the team.</p>
-<br><hr><br>
-<p class="ptab" style="margin-top:20px">The Ignis Team</p><br>
+	<canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
 
@@ -96,6 +88,68 @@ function topFunction() {
 	document.body.scrollTop = 0;
 	document.documentElement.scrollTop = 0;
 }
+// Charting stuff
+var ctx = document.getElementById('myChart').getContext('2d');
+const labels = ['2021-08-08 23:00:02', '2021-08-09 00:00:02', '2021-08-09 01:00:02', '2021-08-09 02:00:02'];
+const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Total',
+            data: [50, 46, 42, 38, 34],
+            borderColor: 'rgba(0, 0, 0, 0.8)',
+            backgroundColor: 'rgba(255, 255, 255, 0.4)'
+        },
+        {
+            label: 'EU Central (Casual)',
+            data: [20, 19, 18, 17, 16],
+            borderColor: 'rgba(54, 162, 235, 0.8)',
+            backgroundColor: 'rgba(54, 162, 235, 0.4)'
+        },
+        {
+            label: 'EU Central (Competitive)',
+            data: [15, 14, 13, 12, 11],
+            borderColor: 'rgba(255, 206, 86, 0.8)',
+            backgroundColor: 'rgba(255, 206, 86, 0.4)'
+        },
+        {
+            label: 'US West (Casual)',
+            data: [10, 9, 8, 7, 6],
+            borderColor: 'rgba(75, 192, 192, 0.8)',
+            backgroundColor: 'rgba(75, 192, 192, 0.4)'
+        },
+        {
+            label: 'US West (Competitive)',
+            data: [5, 4, 3, 2, 1],
+            borderColor: 'rgba(153, 102, 255, 0.8)',
+            backgroundColor: 'rgba(153, 102, 255, 0.4)'
+        }]
+    };
+// borderColor: 'rgba(255, 159, 64, 0.8)', borderColor: 'rgba(255, 159, 64, 0.4)'
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: {
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    stacked: false,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Concurrent players in our server instances'
+      }
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        display: true,
+        position: 'left',
+      },
+    }
+  },
+});
 </script>
 </body>
 </html>
