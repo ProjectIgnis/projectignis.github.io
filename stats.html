@@ -92,7 +92,7 @@ function topFunction() {
 	document.documentElement.scrollTop = 0;
 }
 // Charting stuff
-fetch('http://185.227.110.90:44460/stats.csv')
+fetch('https://eu.ygopro.co:44461/stats.csv')
 	.then((response) => {
 		if (response.status >= 200 && response.status <= 299) {
 			return response.text();
