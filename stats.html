@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html id="gg">
+<head>
+<meta charset="utf-8">
+<!--Add the style sheet-->
+<link id="theme" rel="stylesheet" type="text/css" href="assets/css/dark-mode.css" />
+<script>
+function toggleTheme(sheet){
+  document.getElementById('theme').setAttribute('href', sheet);
+  localStorage.setItem("themePref", sheet);
+}
+
+window.onload = _ =>
+ toggleTheme(
+  localStorage.getItem("themePref") || "assets/css/dark-mode.css"
+ );
+</script>
+<link rel="icon" href="https://avatars.githubusercontent.com/u/58537850">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
+<script src="assets/js/jquery-csv.js"></script>
+<style>
+.zoom {
+	transition: all .5s ease; /*Return back to normal */
+}
+.zoom:hover {
+	transform: translate3D(0,-1px,0) scale(1.17); /* Move up slightly and zoom in */
+}
+</style>
+
+<title>Project Ignis</title>
+</head>
+
+
+
+<body id="vb">
+<!--Links topnav-->
+<div class="topnav">
+	<div style="float:left;margin-left:4px;">
+	<button class="btnStyle" onclick="toggleTheme('assets/css/dark-mode.css')">Dark Mode</button>
+	<button class="btnStyle" onclick="toggleTheme('assets/css/blind-mode.css')">Light Mode</button>
+	</div>
+	<!--<a href="#tools">Tools</a>-->
+	<a href="download.html">Download</a>
+	<a class="active" href="stats.html">Stats</a>
+	<a href="faq.html">FAQ</a>
+	<!--<a href="#news">News</a>-->
+	<!--<a href="#forums">Forums</a>-->
+	<a href="index.html">Home</a>
+</div>
+
+
+<!--About-->
+<div class="bgcolor">
+	<canvas id="myChart" width="400" height="400"></canvas>
+</div>
+
+
+<!--Button to return to top-->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+<!--External links relating to the project-->
+<div id="footer-c"></div>
+<script>
+$(function(){
+	$("#footer-c").load("footer-aux.html");
+});
+</script>
+
+
+<!--JavaScript section-->
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+//When the user scrolls down 25px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+	if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+	mybutton.style.display = "block";
+	}
+	else {
+	mybutton.style.display = "none";
+	}
+}
+//When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+}
+// Charting stuff
+fetch('https://eu.ygopro.co:44461/stats.csv')
+	.then((response) => {
+		if (response.status >= 200 && response.status <= 299) {
+			return response.text();
+		} else {
+			throw Error(response.statusText);
+		}
+	})
+	.then((text) => {
+		// Collect and order the data.
+		const csv_array = $.csv.toArrays(text);
+		var labels = [];
+		var data = {
+			eu_casual: [],
+			eu_comp: [],
+			us_casual: [],
+			us_comp: [],
+			total: []
+		};
+		// Probably a terrible way of doing it, but who cares, it works™.
+		var max_total = 0;
+		for(var i = 1; i < csv_array.length; i++)
+		{
+			const eu_casual_elem = parseInt(csv_array[i][1]);
+			const eu_comp_elem = parseInt(csv_array[i][2]);
+			const us_casual_elem = parseInt(csv_array[i][3]);
+			const us_comp_elem = parseInt(csv_array[i][4]);
+			const total = eu_casual_elem + eu_comp_elem +
+			              us_casual_elem + us_comp_elem;
+			if(total > max_total)
+				max_total = total;
+			labels.push(csv_array[i][0] + " UTC");
+			data.eu_casual.push(eu_casual_elem);
+			data.eu_comp.push(eu_comp_elem);
+			data.us_casual.push(us_casual_elem);
+			data.us_comp.push(us_comp_elem);
+			data.total.push(total);
+		}
+		// Time to plot, baby!
+		const elem_cnt = labels.length;
+		const plot_data = {
+			labels: labels,
+			datasets: [{
+				backgroundColor: 'rgba(255, 255, 255, 0.4)',
+				borderColor: 'rgba(0, 0, 0, 0.8)',
+				data: data.total,
+				indexAxis: 'x',
+				label: 'Total'
+			},
+			{
+				backgroundColor: 'rgba(54, 162, 235, 0.4)',
+				borderColor: 'rgba(54, 162, 235, 0.8)',
+				data: data.eu_casual,
+				indexAxis: 'x',
+				label: 'EU Central (Casual)'
+			},
+			{
+				backgroundColor: 'rgba(255, 206, 86, 0.4)',
+				borderColor: 'rgba(255, 206, 86, 0.8)',
+				data: data.eu_comp,
+				indexAxis: 'x',
+				label: 'EU Central (Competitive)'
+			},
+			{
+				backgroundColor: 'rgba(75, 192, 192, 0.4)',
+				borderColor: 'rgba(75, 192, 192, 0.8)',
+				data: data.us_casual,
+				indexAxis: 'x',
+				label: 'US West (Casual)'
+			},
+			{
+				backgroundColor: 'rgba(153, 102, 255, 0.4)',
+				borderColor: 'rgba(153, 102, 255, 0.8)',
+				data: data.us_comp,
+				indexAxis: 'x',
+				label: 'US West (Competitive)'
+			}]
+		};
+		const zoom_opts = {
+			limits: {
+				x: {min: 0, max: elem_cnt, minRange: 24},
+			},
+			pan: {
+				enabled: true,
+				mode: 'x',
+			},
+			zoom: {
+				wheel: {
+					enabled: true,
+				},
+				pinch: {
+					enabled: true
+				},
+				mode: 'x'
+			}
+		};
+		new Chart(document.getElementById('myChart').getContext('2d'), {
+			type: 'line',
+			data: plot_data,
+			options: {
+				responsive: true,
+				interaction: {
+					mode: 'index',
+					intersect: false,
+				},
+				stacked: false,
+				plugins: {
+					title: {
+						display: true,
+						text: 'Concurrent players in our server instances'
+					},
+					zoom: zoom_opts,
+				},
+				scales: {
+					x: {
+						min: 0,
+						max: elem_cnt,
+						ticks: {
+							stepSize: 1
+						},
+						position: 'bottom'
+					},
+					y: {
+						min: 0,
+						max: max_total + 10,
+						type: 'linear',
+						display: true,
+						position: 'left',
+					}
+				}
+			}
+		}).zoomScale('x', {min: elem_cnt - 24, max: elem_cnt}, 'default');
+	})
+	.catch((error) => {
+		// TODO: Show some error text?
+		console.log(error);
+	});
+</script>
+</body>
+</html>
