@@ -1,269 +1,875 @@
 <!DOCTYPE html>
 <html id="gg">
-<head>
-<meta charset="utf-8">
-<!--Add the style sheet-->
-<link id="theme" rel="stylesheet" type="text/css" href="assets/css/dark-mode.css" />
-<script>
-function toggleTheme(sheet){
-  document.getElementById('theme').setAttribute('href', sheet);
-  localStorage.setItem("themePref", sheet);
-}
+	<head>
+		<meta charset="utf-8" />
+		<!--Add the style sheet-->
+		<link
+			id="theme"
+			rel="stylesheet"
+			type="text/css"
+			href="assets/css/dark-mode.css"
+		/>
+		<script>
+			function toggleTheme(sheet) {
+				document.getElementById("theme").setAttribute("href", sheet);
+				localStorage.setItem("themePref", sheet);
+			}
 
-window.onload = _ =>
- toggleTheme(
-  localStorage.getItem("themePref") || "assets/css/dark-mode.css"
- );
-</script>
-<link rel="icon" href="https://avatars.githubusercontent.com/u/58537850">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<style>
-.zoom {
-	transition: all .5s ease; /*Return back to normal */
-}
-.zoom:hover {
-	transform: translate3D(0,-1px,0) scale(1.17); /* Move up slightly and zoom in */
-}
-</style>
+			window.onload = (_) =>
+				toggleTheme(
+					localStorage.getItem("themePref") ||
+						"assets/css/dark-mode.css"
+				);
+		</script>
+		<link
+			rel="icon"
+			href="https://avatars.githubusercontent.com/u/58537850"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<style>
+			.zoom {
+				transition: all 0.5s ease; /*Return back to normal */
+			}
+			.zoom:hover {
+				transform: translate3D(0, -1px, 0) scale(1.17); /* Move up slightly and zoom in */
+			}
+		</style>
 
-<style>
-.collapsebar {
-	background-color: #777;
-	cursor: pointer;
-	padding: 18px;
-	width: 100%;
-	border: none;
-	text-align: left;
-	text-indent: 12px;
-	outline: none;
-	font-size: 18px;
-}
-.active, .collapsebar:hover {
-	background-color: #555;
-}
-</style>
+		<style>
+			.collapsebar {
+				background-color: #777;
+				cursor: pointer;
+				padding: 18px;
+				width: 100%;
+				border: none;
+				text-align: left;
+				text-indent: 12px;
+				outline: none;
+				font-size: 18px;
+			}
+			.active,
+			.collapsebar:hover {
+				background-color: #555;
+			}
+		</style>
 
-<style>
-img.animated-gif{
-	width: 700px;
-	height: auto;
-	margin-bottom: 25px;
-}
-</style>
+		<style>
+			img.animated-gif {
+				width: 700px;
+				height: auto;
+				margin-bottom: 25px;
+			}
+		</style>
 
-<title>Project Ignis</title>
-</head>
+		<title>Project Ignis</title>
+	</head>
 
+	<body id="vb">
+		<!--Links topnav-->
+		<div class="topnav">
+			<div style="float: left; margin-left: 4px">
+				<button
+					class="btnStyle"
+					onclick="toggleTheme('assets/css/dark-mode.css')"
+				>
+					Dark Mode
+				</button>
+				<button
+					class="btnStyle"
+					onclick="toggleTheme('assets/css/blind-mode.css')"
+				>
+					Light Mode
+				</button>
+			</div>
+			<!--<a href="#tools">Tools</a>-->
+			<a href="download.html">Download</a>
+			<a href="stats.html">Stats</a>
+			<a class="active" href="faq.html">FAQ</a>
+			<!--<a href="#news">News</a>-->
+			<!--<a href="#forums">Forums</a>-->
+			<a href="index.html">Home</a>
+		</div>
 
+		<!--Info-->
+		<div class="bgcolor">
+			<p class="ptab" style="padding-top: 6%">
+				This is a list of Frequently Asked Questions concerning Project
+				Ignis: EDOPro. For a full list of features, check out the
+				<code>README</code> file in your game's folder.
+			</p>
 
-<body id="vb">
-<!--Links topnav-->
-<div class="topnav">
-	<div style="float:left;margin-left:4px;">
-	<button class="btnStyle" onclick="toggleTheme('assets/css/dark-mode.css')">Dark Mode</button>
-	<button class="btnStyle" onclick="toggleTheme('assets/css/blind-mode.css')">Light Mode</button>
-	</div>
-	<!--<a href="#tools">Tools</a>-->
-	<a href="download.html">Download</a>
-	<a href="stats.html">Stats</a>
-	<a class="active" href="faq.html">FAQ</a>
-	<!--<a href="#news">News</a>-->
-	<!--<a href="#forums">Forums</a>-->
-	<a href="index.html">Home</a>
-</div>
-
-
-<!--Info-->
-<div class="bgcolor">
-<p class="ptab" style="padding-top:6%;">This is a list of Frequently Asked Questions concerning Project Ignis: EDOPro. For a full list of features, check out the <code>README</code> file in your game's folder.</p>
-
-<!--Table of content, dormant
+			<!--Table of content, dormant
 <a href="#question0">Q0: How do I pronounce EDOPro?</a><br/>-->
 
-<button class="collapsebar"><h3 id="question0">Q0: How do I pronounce EDOPro?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px" id="q0"><code>EDOPro</code> is named after lead developer Edoardo "edo9300" Lolletti and is pronounced eh-doh-pro (short e).</p>
-	<p class="ptab" style="margin-bottom:3px;margin-top:16px;text-indent:20px">Pronunciation (American)</p>
-	<audio controls>
-		<source src="/assets/audio/edopro_en_us.mp3" type="audio/mp3">
-	Your browser does not support the audio element.
-	</audio>
-	<p class="ptab" style="margin-bottom:3px;margin-top:16px;text-indent:20px">Pronunciation (Italian)</p>
-	<audio controls>
-		<source src="/assets/audio/edopro_it.mp3" type="audio/mp3">
-	Your browser does not support the audio element.
-	</audio>
-	<p class="ptab" style="margin-bottom:3px;margin-top:16px;text-indent:20px">Pronunciation (Australian)</p>
-	<audio controls>
-		<source src="/assets/audio/edopro_en_au.mp3" type="audio/mp3">
-	Your browser does not support the audio element.
-	</audio>
-		<!--<button class="icobtn">
+			<button class="collapsebar">
+				<h3 id="question0">Q0: How do I pronounce EDOPro?</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px" id="q0">
+					<code>EDOPro</code> is named after lead developer Edoardo
+					"edo9300" Lolletti and is pronounced eh-doh-pro (short e).
+				</p>
+				<p
+					class="ptab"
+					style="
+						margin-bottom: 3px;
+						margin-top: 16px;
+						text-indent: 20px;
+					"
+				>
+					Pronunciation (American)
+				</p>
+				<audio controls>
+					<source
+						src="/assets/audio/edopro_en_us.mp3"
+						type="audio/mp3"
+					/>
+					Your browser does not support the audio element.
+				</audio>
+				<p
+					class="ptab"
+					style="
+						margin-bottom: 3px;
+						margin-top: 16px;
+						text-indent: 20px;
+					"
+				>
+					Pronunciation (Italian)
+				</p>
+				<audio controls>
+					<source
+						src="/assets/audio/edopro_it.mp3"
+						type="audio/mp3"
+					/>
+					Your browser does not support the audio element.
+				</audio>
+				<p
+					class="ptab"
+					style="
+						margin-bottom: 3px;
+						margin-top: 16px;
+						text-indent: 20px;
+					"
+				>
+					Pronunciation (Australian)
+				</p>
+				<audio controls>
+					<source
+						src="/assets/audio/edopro_en_au.mp3"
+						type="audio/mp3"
+					/>
+					Your browser does not support the audio element.
+				</audio>
+				<!--<button class="icobtn">
 			<a href="#" onclick="CopyToClipboard('q0');return false;"><i class="fa fa-copy"></i></a>
 		</button>-->
-</div>
-<button class="collapsebar"><h3 id="question1">Q1: Can I customize EDOPro?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px" id="q1">Most elements of <code>EDOPro</code> are customizable to some degree.</p>
-	<p class="ptab" style="margin-top:20px">You can select from a number of skins in the More settings menu, which can be accessed in <code>EDOPro</code> by pressing Ctrl+O or by clicking the gear icon on the bottom left corner.You can also create your own skins and download skins created by others. If you're interested in creating or modifying skins there are a couple of things you should note:</p>
-	<p style="line-height:1em;margin-bottom:.5em;text-indent:10px;">● Customization of most UI elements will require a skin.xml file, which you can copy from an existing skin. Documentation for the <code>skin.xml</code> file can be found in the <code>README</code> file inside the game's <code>skin</code> folder.<br></p>
-	<p style="line-height:1em;margin-bottom:.5em;text-indent:10px;">● Files placed in a <code>textures</code> folder inside a skin's folder will be used instead of the default textures. This makes it possible to have custom backgrounds and sleeves for individual skins.</p>
-	<p class="ptab" style="margin-top:20px">You can also customize music and sound effects by adding/replacing files in the game's sound folder. Documentation of how to customize sound and music can be found in the <code>README</code> file inside the <code>sound</code> folder.</p>
-	<p class="ptab" style="margin-top:20px">It is also possible to replace the card images in the <code>pics</code> folder with files of the same names (card IDs) if you want alternative or higher quality artwork. We do not provide any alternative card images at this time.</p>
-	<p class="ptab" style="margin-top:20px">You can find the game folder on Windows by right-clicking the shortcut and clicking <code>Open file location</code>. On macOS, right-click the Launchpad or Dock icon and click <code>Show in Finder</code>.</p>
-</div>
-<button class="collapsebar"><h3 id="question2">Q2: Is it possible to use older rulesets in EDOPro?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">When hosting a room you can select any of the Master Rules (with/without TCG quirks), Speed Duel, Rush Duel, GOAT, or a variety of custom rules by clicking the Custom button next to the Rule selection box.<br><br>Information about the various Master Rules can be found <a href="https://yugipedia.com/wiki/Master_Rules">here</a></p>
-</div>
+			</div>
+			<button class="collapsebar">
+				<h3 id="question1">Q1: Can I customize EDOPro?</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px" id="q1">
+					Most elements of <code>EDOPro</code> are customizable to
+					some degree.
+				</p>
+				<p class="ptab" style="margin-top: 20px">
+					You can select from a number of skins in the More settings
+					menu, which can be accessed in <code>EDOPro</code> by
+					pressing Ctrl+O or by clicking the gear icon on the bottom
+					left corner.You can also create your own skins and download
+					skins created by others. If you're interested in creating or
+					modifying skins there are a couple of things you should
+					note:
+				</p>
+				<p
+					style="
+						line-height: 1em;
+						margin-bottom: 0.5em;
+						text-indent: 10px;
+					"
+				>
+					● Customization of most UI elements will require a skin.xml
+					file, which you can copy from an existing skin.
+					Documentation for the <code>skin.xml</code> file can be
+					found in the <code>README</code> file inside the game's
+					<code>skin</code> folder.<br />
+				</p>
+				<p
+					style="
+						line-height: 1em;
+						margin-bottom: 0.5em;
+						text-indent: 10px;
+					"
+				>
+					● Files placed in a <code>textures</code> folder inside a
+					skin's folder will be used instead of the default textures.
+					This makes it possible to have custom backgrounds and
+					sleeves for individual skins.
+				</p>
+				<p class="ptab" style="margin-top: 20px">
+					You can also customize music and sound effects by
+					adding/replacing files in the game's sound folder.
+					Documentation of how to customize sound and music can be
+					found in the <code>README</code> file inside the
+					<code>sound</code> folder.
+				</p>
+				<p class="ptab" style="margin-top: 20px">
+					It is also possible to replace the card images in the
+					<code>pics</code> folder with files of the same names (card
+					IDs) if you want alternative or higher quality artwork. We
+					do not provide any alternative card images at this time.
+				</p>
+				<p class="ptab" style="margin-top: 20px">
+					You can find the game folder on Windows by right-clicking
+					the shortcut and clicking <code>Open file location</code>.
+					On macOS, right-click the Launchpad or Dock icon and click
+					<code>Show in Finder</code>.
+				</p>
+			</div>
+			<button class="collapsebar">
+				<h3 id="question2">
+					Q2: Is it possible to use older rulesets in EDOPro?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					When hosting a room you can select any of the Master Rules
+					(with/without TCG quirks), Speed Duel, Rush Duel, GOAT, or a
+					variety of custom rules by clicking the Custom button next
+					to the Rule selection box.<br /><br />Information about the
+					various Master Rules can be found
+					<a href="https://yugipedia.com/wiki/Master_Rules">here</a>
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question3">Q3: Can I use my decks from older simulators?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">You can copy <code>.ydk</code> deck files from the <code>deck</code> folder in your old folder for <code>YGOPro Percy</code> to the <code>deck</code> folder inside your folder for <code>EDOPro</code>. If the copied decks contain cards with beta IDs that have since been updated to official status, then those cards will be missing. In that case you would need to re-add the missing cards in the <code>EDOPro</code> deck editor.</p><p class="ptab">You can find the folder for <code>EDOPro</code> on Windows by right-clicking the shortcut and clicking <code>Open file location</code>. On macOS, right-click the Launchpad or Dock icon and click <code>Show in Finder</code>.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question3">
+					Q3: Can I use my decks from older simulators?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					You can copy <code>.ydk</code> deck files from the
+					<code>deck</code> folder in your old folder for
+					<code>YGOPro Percy</code> to the <code>deck</code> folder
+					inside your folder for <code>EDOPro</code>. If the copied
+					decks contain cards with beta IDs that have since been
+					updated to official status, then those cards will be
+					missing. In that case you would need to re-add the missing
+					cards in the <code>EDOPro</code> deck editor.
+				</p>
+				<p class="ptab">
+					You can find the folder for <code>EDOPro</code> on Windows
+					by right-clicking the shortcut and clicking
+					<code>Open file location</code>. On macOS, right-click the
+					Launchpad or Dock icon and click
+					<code>Show in Finder</code>.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question4">Q4: Can I cancel actions in EDOPro?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">By pressing Normal Summon, Set or Activate, you have already committed to performing the action. This is similar to putting the card on the playing field, declaring a card or effect activation, or sending monsters from your field to the GY to perform a Synchro Summon in real life play. Those actions <b>cannot be cancelled</b>.</p>
-	<p class="ptab">However, a new feature added to most cards of Project Ignis scripts' is the ability to cancel certain monsters' pre-Summoning actions. For example, after clicking <code>Tribute Summon</code> on <code>Mobius the Mega Monarch</code>, or after clicking <code>Special Summon</code> on <code>The Tricky</code>, you can right-click to cancel the summoning process. For cards that require you to select multiple cards, it is necessary to unselect all cards you have selected before right-clicking to cancel. Be aware that in all cases, if you have reached the zone-selecting part of the summoning process, it is no longer cancellable.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question4">Q4: Can I cancel actions in EDOPro?</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					By pressing Normal Summon, Set or Activate, you have already
+					committed to performing the action. This is similar to
+					putting the card on the playing field, declaring a card or
+					effect activation, or sending monsters from your field to
+					the GY to perform a Synchro Summon in real life play. Those
+					actions <b>cannot be cancelled</b>.
+				</p>
+				<p class="ptab">
+					However, a new feature added to most cards of Project Ignis
+					scripts' is the ability to cancel certain monsters'
+					pre-Summoning actions. For example, after clicking
+					<code>Tribute Summon</code> on
+					<code>Mobius the Mega Monarch</code>, or after clicking
+					<code>Special Summon</code> on <code>The Tricky</code>, you
+					can right-click to cancel the summoning process. For cards
+					that require you to select multiple cards, it is necessary
+					to unselect all cards you have selected before
+					right-clicking to cancel. Be aware that in all cases, if you
+					have reached the zone-selecting part of the summoning
+					process, it is no longer cancellable.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question5">Q5: Why do Chain Links when multiple Trigger Effects activate at the same time work differently than in Percy?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px" id="q0"><code>EDOPro</code> has a new system for selecting Chain Links when multiple Trigger Effects activate at the same time. Previously, a window would pop up where you could assign each effect a Chain Link, then all those effects would be activated at once, in the order that you chose. Now, you're prompted to choose an effect to activate, and the first effect you choose will be Chain Link 1, the next will be Chain Link 2, etc, until all effects that you want to activate have been chosen or there are no other Trigger Effects to activate. Then, the game will move on to the opponent adding Trigger Effects to this Chain, if any.</p>
-	<p class="ptab">The reason for this change is that the old system had a number of issues with edge-case rulings:</p>
-	<p class="ptab">1) If you controlled multiple copies of a card with a mandatory Trigger Effect that could only be used once per turn (e.g. <code>Heavymetalfoes Electrumite</code>), and one copy had its effects negated, the game would automatically choose which one to activate and could possibly choose the negated one, effectively wasting the effect. Now you can choose which one to activate in this scenario.</p>
-	<p class="ptab">2) If you could only activate one effect per Chain (e.g. due to the monster effect of <code>Invoked Caliga</code> or the Pendulum Effect of <code>Amorphage Envy</code>), the old system would allow you to activate more than one Trigger Effect regardless, making the interaction inaccurate rulings-wise.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question5">
+					Q5: Why do Chain Links when multiple Trigger Effects
+					activate at the same time work differently than in Percy?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px" id="q0">
+					<code>EDOPro</code> has a new system for selecting Chain
+					Links when multiple Trigger Effects activate at the same
+					time. Previously, a window would pop up where you could
+					assign each effect a Chain Link, then all those effects
+					would be activated at once, in the order that you chose.
+					Now, you're prompted to choose an effect to activate, and
+					the first effect you choose will be Chain Link 1, the next
+					will be Chain Link 2, etc, until all effects that you want
+					to activate have been chosen or there are no other Trigger
+					Effects to activate. Then, the game will move on to the
+					opponent adding Trigger Effects to this Chain, if any.
+				</p>
+				<p class="ptab">
+					The reason for this change is that the old system had a
+					number of issues with edge-case rulings:
+				</p>
+				<p class="ptab">
+					1) If you controlled multiple copies of a card with a
+					mandatory Trigger Effect that could only be used once per
+					turn (e.g. <code>Heavymetalfoes Electrumite</code>), and one
+					copy had its effects negated, the game would automatically
+					choose which one to activate and could possibly choose the
+					negated one, effectively wasting the effect. Now you can
+					choose which one to activate in this scenario.
+				</p>
+				<p class="ptab">
+					2) If you could only activate one effect per Chain (e.g. due
+					to the monster effect of <code>Invoked Caliga</code> or the
+					Pendulum Effect of <code>Amorphage Envy</code>), the old
+					system would allow you to activate more than one Trigger
+					Effect regardless, making the interaction inaccurate
+					rulings-wise.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question6">Q6: What is Discord Rich Presence and how does it work with EDOPro?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">For desktop Discord users with playing status messages enabled (found under <code>Settings>Game Activity</code>), Rich Presence displays EDOPro as your playing status with information such as what you're currently doing and how much time has elapsed in your current session.</p>
-	<p class="ptab">It also allows users to send and join invites directly through Discord. When hosting a room on a server, the upload icon on Discord will change to have a green play button. Clicking that play button in a channel/DM will allow you to send an invite there. Game invites will launch <code>EDOPro</code> automatically (if it has been started once before) and will skip passwords for locked rooms.</p>
-	<p class="ptab">Note that Discord is rather fickle and changes this behaviour on us very frequently, so if the game fails to automatically launch, try starting the game manually.</p>
-	<p class="ptab">If you have performance issues with this feature, you can disable it in the settings, which can be accessed in-game by pressing Ctrl+0 or clicking the gear icon in the bottom-left corner.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question6">
+					Q6: What is Discord Rich Presence and how does it work with
+					EDOPro?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					For desktop Discord users with playing status messages
+					enabled (found under <code>Settings>Game Activity</code>),
+					Rich Presence displays EDOPro as your playing status with
+					information such as what you're currently doing and how much
+					time has elapsed in your current session.
+				</p>
+				<p class="ptab">
+					It also allows users to send and join invites directly
+					through Discord. When hosting a room on a server, the upload
+					icon on Discord will change to have a green play button.
+					Clicking that play button in a channel/DM will allow you to
+					send an invite there. Game invites will launch
+					<code>EDOPro</code> automatically (if it has been started
+					once before) and will skip passwords for locked rooms.
+				</p>
+				<p class="ptab">
+					Note that Discord is rather fickle and changes this
+					behaviour on us very frequently, so if the game fails to
+					automatically launch, try starting the game manually.
+				</p>
+				<p class="ptab">
+					If you have performance issues with this feature, you can
+					disable it in the settings, which can be accessed in-game by
+					pressing Ctrl+0 or clicking the gear icon in the bottom-left
+					corner.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question7">Q7: What are Extra Rules?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">Extra Rules are an attempt to recreate some alternative duel modes like Sealed Duels, Turbo Duels, etc. You can access them by clicking the <code>Extra Rules</code> button when hosting a room. More information about these modes can be found <a href="https://github.com/ProjectIgnis/CardScripts/wiki/Extra-Rules">here</a>.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question7">Q7: What are Extra Rules?</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					Extra Rules are an attempt to recreate some alternative duel
+					modes like Sealed Duels, Turbo Duels, etc. You can access
+					them by clicking the <code>Extra Rules</code> button when
+					hosting a room. More information about these modes can be
+					found
+					<a
+						href="https://github.com/ProjectIgnis/CardScripts/wiki/Extra-Rules"
+						>here</a
+					>.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question8">Q8: What are relay duels?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">Just like relay races, in a relay duel, only one duelist from a team duels at a time. When their LP reach 0, the turn ends and the next duelist takes over. This game mode was used during the WRGP arc of the 5D's anime. You can play a relay duel by pushing down the Relay button when hosting a room.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question8">Q8: What are relay duels?</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					Just like relay races, in a relay duel, only one duelist
+					from a team duels at a time. When their LP reach 0, the turn
+					ends and the next duelist takes over. This game mode was
+					used during the WRGP arc of the 5D's anime. You can play a
+					relay duel by pushing down the Relay button when hosting a
+					room.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question9">Q9: How do I play a match?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">Playing a <code>Best of 3</code> is best 2 out of 3 duels, which is equivalent to a match.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question9">Q9: How do I play a match?</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					Playing a <code>Best of 3</code> is best 2 out of 3 duels,
+					which is equivalent to a match.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question10">Q10: How do I change the display language?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">Currently English, Spanish, German, French, Italian, and Portuguese are included by default for menu text. You can switch between these in the More settings window, which can be accessed in-game by pressing Ctrl+O, by tapping with three fingers on Android or by clicking the gear icon on the bottom left corner.
-	<p class="ptab">To change the card text, you would need translated CDB files for the language you wish to use, which can be placed in the appropriate language folder in <code>config/languages/</code> inside the game's folder. We only provide English CDBs as that is our primary language. If you wish to translate the CDB files yourself, you can do so with any SQLite editor. Community language databases may be available in our language channels.</p>
-	<p class="ptab">Automatically-updating language-source repositories are also supported since 38.1.0. You can find more information in our language channels. Translators, please consult <a href="https://github.com/edo9300/edopro/releases/tag/38.1.0">here</a> for the JSON schema to make <code>EDOPro</code> load this type of repository.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question10">
+					Q10: How do I change the display language?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					Currently English, Spanish, German, French, Italian, and
+					Portuguese are included by default for menu text. You can
+					switch between these in the More settings window, which can
+					be accessed in-game by pressing Ctrl+O, by tapping with
+					three fingers on Android or by clicking the gear icon on the
+					bottom left corner.
+				</p>
+				<p class="ptab">
+					To change the card text, you would need translated CDB files
+					for the language you wish to use, which can be placed in the
+					appropriate language folder in
+					<code>config/languages/</code> inside the game's folder. We
+					only provide English CDBs as that is our primary language.
+					If you wish to translate the CDB files yourself, you can do
+					so with any SQLite editor. Community language databases may
+					be available in our language channels.
+				</p>
+				<p class="ptab">
+					Automatically-updating language-source repositories are also
+					supported since 38.1.0. You can find more information in our
+					language channels. Translators, please consult
+					<a
+						href="https://github.com/edo9300/edopro/releases/tag/38.1.0"
+						>here</a
+					>
+					for the JSON schema to make <code>EDOPro</code> load this
+					type of repository.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question11">Q11: How do I play with custom cards or against bots with friends on LAN?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">	<p class="ptab" style="margin-top:20px">You have a couple of options:</p>
-	<p style="margin-top:20px;font-size:22px;text-indent:0px;margin-bottom:0em;">1) Port forward the LAN ports used by EDOPro and give your friend your IP to join in LAN mode.<br><br>
-	2) You and your friends can set up a VPN, such as <a href="https://www.zerotier.com/">ZeroTier</a>, so everybody is on the same virtual LAN. Then you should be able to refresh the LAN room list or connect to the IP provided by the VPN. Both players must have the custom card databases to see what the cards are, and the hosting player must have the card scripts.</p><br>
-</div>
+			<button class="collapsebar">
+				<h3 id="question11">
+					Q11: How do I play with custom cards or against bots with
+					friends on LAN?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px"></p>
+				<p class="ptab" style="margin-top: 20px">
+					You have a couple of options:
+				</p>
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						text-indent: 0px;
+						margin-bottom: 0em;
+					"
+				>
+					1) Port forward the LAN ports used by EDOPro and give your
+					friend your IP to join in LAN mode.<br /><br />
+					2) You and your friends can set up a VPN, such as
+					<a href="https://www.zerotier.com/">ZeroTier</a>, so
+					everybody is on the same virtual LAN. Then you should be
+					able to refresh the LAN room list or connect to the IP
+					provided by the VPN. Both players must have the custom card
+					databases to see what the cards are, and the hosting player
+					must have the card scripts.
+				</p>
+				<br />
+			</div>
 
-<button class="collapsebar"><h3 id="question12">Q12: Why don't replays from older/other simulators work?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">Old <code>.yrp</code> replays work by re-enacting the actions performed in a duel, and how this happens is very specific to the version of the game core and scripts used. They frequently break with script updates, so older replays do not work. In contrast, new <code>.yrpX</code> replays record the results of actions in a duel, so they never break.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question12">
+					Q12: Why don't replays from older/other simulators work?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					Old <code>.yrp</code> replays work by re-enacting the
+					actions performed in a duel, and how this happens is very
+					specific to the version of the game core and scripts used.
+					They frequently break with script updates, so older replays
+					do not work. In contrast, new <code>.yrpX</code> replays
+					record the results of actions in a duel, so they never
+					break.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question13">Q13: How do I report a card bug?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">To report a card bug, post a detailed explanation in the card's respective bug report channel on our Discord server, preferably with a replay file of the bug occurring attached to your message. If you're unsure whether or not you have a replay of the bug, it's always a good idea to check the <code>_LastReplay.yrpX</code> file as it may be the replay you need.</p>
-	<p class="ptab">If you don't have a replay, you can attempt to reproduce the bug offline and save the replay, by using the <code>Test Hand</code> option in the deck editor, or by playing in LAN against yourself (by opening two instances of the game) or against the AI, in which case you can arrange your deck to set up your starting hand, and enable the <code>Don't shuffle Deck</code> option when hosting the room to help speed up the process.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question13">Q13: How do I report a card bug?</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					To report a card bug, post a detailed explanation in the
+					card's respective bug report channel on our Discord server,
+					preferably with a replay file of the bug occurring attached
+					to your message. If you're unsure whether or not you have a
+					replay of the bug, it's always a good idea to check the
+					<code>_LastReplay.yrpX</code> file as it may be the replay
+					you need.
+				</p>
+				<p class="ptab">
+					If you don't have a replay, you can attempt to reproduce the
+					bug offline and save the replay, by using the
+					<code>Test Hand</code> option in the deck editor, or by
+					playing in LAN against yourself (by opening two instances of
+					the game) or against the AI, in which case you can arrange
+					your deck to set up your starting hand, and enable the
+					<code>Don't shuffle Deck</code> option when hosting the room
+					to help speed up the process.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question14">Q14: Why don't some cards do exactly what the card text says?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">There are a couple of potential reasons for this:</p>
-	<p style="margin-top:20px;font-size:22px;text-indent:0px;margin-bottom:0em;">1) Some cards have rulings that contradict the obvious interpretation of the card text.<br><br>
-	2) There is a difference between how the card works in the OCG and how it works in the TCG. In order to maintain consistency, Project Ignis' card scripts are based on OCG rulings. This is because OCG rulings have full documentation while TCG rulings do not, and we are able to contact the OCG office to verify any unclear interaction, if needed.</p><br>
-	<p class="ptab">We still use the most recent official English TCG card text in order to have up-to-date PSCT. Our card database uses text from <a href="https://www.db.yugioh-card.com/yugiohdb/">Konami's official card database</a>, and <a href="https://yugipedia.com/wiki/Yugipedia">Yugipedia</a>.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question14">
+					Q14: Why don't some cards do exactly what the card text
+					says?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					There are a couple of potential reasons for this:
+				</p>
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						text-indent: 0px;
+						margin-bottom: 0em;
+					"
+				>
+					1) Some cards have rulings that contradict the obvious
+					interpretation of the card text.<br /><br />
+					2) There is a difference between how the card works in the
+					OCG and how it works in the TCG. In order to maintain
+					consistency, Project Ignis' card scripts are based on OCG
+					rulings. This is because OCG rulings have full documentation
+					while TCG rulings do not, and we are able to contact the OCG
+					office to verify any unclear interaction, if needed.
+				</p>
+				<br />
+				<p class="ptab">
+					We still use the most recent official English TCG card text
+					in order to have up-to-date PSCT. Our card database uses
+					text from
+					<a href="https://www.db.yugioh-card.com/yugiohdb/"
+						>Konami's official card database</a
+					>, and
+					<a href="https://yugipedia.com/wiki/Yugipedia">Yugipedia</a
+					>.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question15">Q15: Why do some unofficial cards not work the way they did in the anime/manga?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">Our unofficial card scripts are primarily based on translations of the card text visible in the Japanese card proxy used, and not on how the card was used, or according to character dialogue, since it is not uncommon for the anime to not properly follow the OCG rules in some cases. For manga cards specifically, since the rules there are generally more loose, often having RPG elements associated with them, there is a bit more freedom in the interpretation of the effect.</p>
-	<p class="ptab">When the card text is not fully available, we take care to research how a card should work. We do this because our unofficial cards are adaptations of the card effect into an OCG-like environment, and not an attempt to recreate the inconsistent and sometimes impossible antics of the source material directly.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question15">
+					Q15: Why do some unofficial cards not work the way they did
+					in the anime/manga?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					Our unofficial card scripts are primarily based on
+					translations of the card text visible in the Japanese card
+					proxy used, and not on how the card was used, or according
+					to character dialogue, since it is not uncommon for the
+					anime to not properly follow the OCG rules in some cases.
+					For manga cards specifically, since the rules there are
+					generally more loose, often having RPG elements associated
+					with them, there is a bit more freedom in the interpretation
+					of the effect.
+				</p>
+				<p class="ptab">
+					When the card text is not fully available, we take care to
+					research how a card should work. We do this because our
+					unofficial cards are adaptations of the card effect into an
+					OCG-like environment, and not an attempt to recreate the
+					inconsistent and sometimes impossible antics of the source
+					material directly.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question16">Q16: How do I find Rush duel cards or Speed Duel Skills?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">To show Rush cards (and others like anime, manga, speed duel skills) check the "Alternate Formats" box in Deck edit. If you still don't find them, there could be problems with updates, with solutions listed in Q19.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question16">
+					Q16: How do I find Rush duel cards or Speed Duel Skills?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					To show Rush cards (and others like anime, manga, speed duel
+					skills) check the "Alternate Formats" box in Deck edit. If
+					you still don't find them, there could be problems with
+					updates, with solutions listed in Q19.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question17">Q17: How do I use [unadvertised feature]? Can you add [other feature]?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">If something is not advertised as a feature by us or described in a <code>README</code>, then it is not a feature. As a volunteer, open-source collaboration, we welcome community contributions via well-formatted pull requests on GitHub according to each project's <a href="https://github.com/ProjectIgnis">contributing guidelines</a>. We don't take feature requests or suggestions.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question17">
+					Q17: How do I use [unadvertised feature]? Can you add [other
+					feature]?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					If something is not advertised as a feature by us or
+					described in a <code>README</code>, then it is not a
+					feature. As a volunteer, open-source collaboration, we
+					welcome community contributions via well-formatted pull
+					requests on GitHub according to each project's
+					<a href="https://github.com/ProjectIgnis"
+						>contributing guidelines</a
+					>. We don't take feature requests or suggestions.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question18">Q18: Why does "Invalid Deck" or "[Card Name] is not allowed" sometimes pop up when trying to start a duel? Why was [Card Name] removed from my Deck?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">Invalid Deck usually pops up when you try to use a deck that has less than 40 cards in the Main Deck. If you're sure the deck has 40 or more cards then it could be a conflict between the server and client, meaning the card IDs in your game client don't match the ones in the server. This can occur when the game is having problems with automatic updates. Solutions to auto-update issues can be found below in Q19. Your deck can also be missing cards due to a passcode update, that happens when we change the status of a pre-release card to include its official passcode.</p>
-	<p class="ptab">"[Card Name]" is not allowed usually pops up when the mentioned card is not allowed based on the banlist selected for that room. This could mean that your deck contains a card that is currently banned in the chosen banlist, or your deck contains multiple copies of it when the card is limited on that banlist, etc.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question18">
+					Q18: Why does "Invalid Deck" or "[Card Name] is not allowed"
+					sometimes pop up when trying to start a duel? Why was [Card
+					Name] removed from my Deck?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					Invalid Deck usually pops up when you try to use a deck that
+					has less than 40 cards in the Main Deck. If you're sure the
+					deck has 40 or more cards then it could be a conflict
+					between the server and client, meaning the card IDs in your
+					game client don't match the ones in the server. This can
+					occur when the game is having problems with automatic
+					updates. Solutions to auto-update issues can be found below
+					in Q19. Your deck can also be missing cards due to a
+					passcode update, that happens when we change the status of a
+					pre-release card to include its official passcode.
+				</p>
+				<p class="ptab">
+					"[Card Name]" is not allowed usually pops up when the
+					mentioned card is not allowed based on the banlist selected
+					for that room. This could mean that your deck contains a
+					card that is currently banned in the chosen banlist, or your
+					deck contains multiple copies of it when the card is limited
+					on that banlist, etc.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question19">Q19: How do I fix not finding new cards in the deck editor, missing banlists, or being stuck on an old banlist?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">	<p class="ptab" style="margin-top:20px">There are a few potential solutions for this:</p>
-	<p style="margin-top:20px;font-size:22px;text-indent:0px;margin-bottom:0em;">1) Make sure you are running the <b>latest version (39.1.1 on Mac and Android, 39.1.2 on Windows and Linux)</b> of the game. The latest version is always available in <a href="download.html">downloads</a>.<br><br>
-	2) Close all running EDOPro instances, delete the <code>repositories</code> and <code>puzzles/Canon collection</code> folders in your game's folder, and then restart the game. You can see the progress of the automatic updates by clicking the <code>Repositories</code> tab in the upper left corner of the game's main menu.<br><br>
-	3) There is an issue with SSL certificates that affects Windows Vista or older and certain Linux distributions. If you're on one of those operating systems, check the Repositories tab in the upper left corner, if you see an error that says <code>The SSL certificate is invalid</code> then you will need to get an external SSL certificate file <a href="https://curl.haxx.se/ca/cacert.pem">here</a>. Once downloaded, place the <code>cacert.pem</code> file inside your ProjectIgnis folder, make sure you only have one instance of EDOPro running, then drag and drop the <code>cacert.pem</code> file onto that EDOPro client window, it should then be set and the error should be resolved.<br><br>
-	</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question19">
+					Q19: How do I fix not finding new cards in the deck editor,
+					missing banlists, or being stuck on an old banlist?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px"></p>
+				<p class="ptab" style="margin-top: 20px">
+					There are a few potential solutions for this:
+				</p>
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						text-indent: 0px;
+						margin-bottom: 0em;
+					"
+				>
+					1) Make sure you are running the
+					<b
+						>latest version (39.1.1 on Mac and Android, 39.1.2 on
+						Windows and Linux)</b
+					>
+					of the game. The latest version is always available in
+					<a href="download.html">downloads</a>.<br /><br />
+					2) Close all running EDOPro instances, delete the
+					<code>repositories</code> and
+					<code>puzzles/Canon collection</code> folders in your game's
+					folder, and then restart the game. You can see the progress
+					of the automatic updates by clicking the
+					<code>Repositories</code> tab in the upper left corner of
+					the game's main menu.<br /><br />
+					3) There is an issue with SSL certificates that affects
+					Windows Vista or older and certain Linux distributions. If
+					you're on one of those operating systems, check the
+					Repositories tab in the upper left corner, if you see an
+					error that says
+					<code>The SSL certificate is invalid</code> then you will
+					need to get an external SSL certificate file
+					<a href="https://curl.haxx.se/ca/cacert.pem">here</a>. Once
+					downloaded, place the <code>cacert.pem</code> file inside
+					your ProjectIgnis folder, make sure you only have one
+					instance of EDOPro running, then drag and drop the
+					<code>cacert.pem</code> file onto that EDOPro client window,
+					it should then be set and the error should be resolved.<br /><br />
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question20">Q20: How do I fix connection problems to the duel servers?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">There are a number of reasons you may be unable to connect to the servers:</p>
-	<p style="margin-top:20px;font-size:22px;text-indent:0px;margin-bottom:0em;">1) Make sure you are running the <b>latest version (39.1.1 on Mac and Android, 39.1.2 on Windows and Linux)</b> of the game. The latest version is always available in <a href="download.html">downloads</a>.<br><br>
-	2) <code>EDOPro</code> might not be allowed through your firewall. To allow a program through the Windows Defender Firewall (the default firewall on Windows); open the Windows search bar, type <code>Control Panel</code> and open it. Then, click on Windows Defender Firewall and select the <code>Allow an app or feature through Windows Defender Firewall</code> option on the top left. Click on <code>Change Settings</code>, find <code>EDOPro</code> on the list, make sure that the checkboxes are checked, and click <code>OK</code>.<br><br>
-	3) Your antivirus might be preventing the game from connecting to the servers. Make sure that <code>EDOPro</code> is whitelisted on your antivirus; the process is different for every antivirus.<br><br>
-	4) You are banned. You can appeal it by opening a ticket on our Discord server.</p><br>
-</div>
+			<button class="collapsebar">
+				<h3 id="question20">
+					Q20: How do I fix connection problems to the duel servers?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					There are a number of reasons you may be unable to connect
+					to the servers:
+				</p>
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						text-indent: 0px;
+						margin-bottom: 0em;
+					"
+				>
+					1) Make sure you are running the
+					<b
+						>latest version (39.1.1 on Mac and Android, 39.1.2 on
+						Windows and Linux)</b
+					>
+					of the game. The latest version is always available in
+					<a href="download.html">downloads</a>.<br /><br />
+					2) <code>EDOPro</code> might not be allowed through your
+					firewall. To allow a program through the Windows Defender
+					Firewall (the default firewall on Windows); open the Windows
+					search bar, type <code>Control Panel</code> and open it.
+					Then, click on Windows Defender Firewall and select the
+					<code
+						>Allow an app or feature through Windows Defender
+						Firewall</code
+					>
+					option on the top left. Click on
+					<code>Change Settings</code>, find <code>EDOPro</code> on
+					the list, make sure that the checkboxes are checked, and
+					click <code>OK</code>.<br /><br />
+					3) Your antivirus might be preventing the game from
+					connecting to the servers. Make sure that
+					<code>EDOPro</code> is whitelisted on your antivirus; the
+					process is different for every antivirus.<br /><br />
+					4) You are banned. You can appeal it by opening a ticket on
+					our Discord server.
+				</p>
+				<br />
+			</div>
 
-<button class="collapsebar"><h3 id="question21">Q21: How do I get images for new cards if they show up as blanks?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">	<p class="ptab" style="margin-top:20px">There are a number of reasons for this:</p>
-	<p style="margin-top:20px;font-size:22px;text-indent:0px;margin-bottom:0em;">● Make sure you are running the <b>latest version (39.1.1 on Mac and Android, 39.1.2 on Windows and Linux)</b> of the game. The latest version is always available in <a href="download.html">downloads</a>.<br><br>
-	● Please be patient with image downloads if you have a slow internet connection.<br><br>
-	● If you are using a public network, like from school or work, it's possible that they have blocked access to the image servers. Sometimes internet service providers also interfere.<br><br>
-	● If your country is under a US technology embargo, you may not be able to connect to the image servers.<br><br>
-	● Check if you're getting the issue 3 from Q19, if so, follow the steps there and restart the client.<br><br>
-	● The Mac version had an issue with downloading card images, a patch for that issue can be downloaded <a href="https://mega.nz/file/cPQDXaZL#YW9_p-nyyOSaQYKD54uDkqTg_8U_xoK-JL70c2ojD28">here</a>.
-	</p><br>
-	<p class="ptab" style="text-indent:20px;">If all else fails, you can download the card images from <a href="https://mega.nz/file/tDASVBgL#0jOstF3Rig6PSC7Y6T_VNTFgDkHngfdmSoePBo2YdJs">this link</a>.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question21">
+					Q21: How do I get images for new cards if they show up as
+					blanks?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px"></p>
+				<p class="ptab" style="margin-top: 20px">
+					There are a number of reasons for this:
+				</p>
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						text-indent: 0px;
+						margin-bottom: 0em;
+					"
+				>
+					● Make sure you are running the
+					<b
+						>latest version (39.1.1 on Mac and Android, 39.1.2 on
+						Windows and Linux)</b
+					>
+					of the game. The latest version is always available in
+					<a href="download.html">downloads</a>.<br /><br />
+					● Please be patient with image downloads if you have a slow
+					internet connection.<br /><br />
+					● If you are using a public network, like from school or
+					work, it's possible that they have blocked access to the
+					image servers. Sometimes internet service providers also
+					interfere.<br /><br />
+					● If your country is under a US technology embargo, you may
+					not be able to connect to the image servers.<br /><br />
+					● Check if you're getting the issue 3 from Q19, if so,
+					follow the steps there and restart the client.<br /><br />
+					● The Mac version had an issue with downloading card images,
+					a patch for that issue can be downloaded
+					<a
+						href="https://mega.nz/file/cPQDXaZL#YW9_p-nyyOSaQYKD54uDkqTg_8U_xoK-JL70c2ojD28"
+						>here</a
+					>.
+				</p>
+				<br />
+				<p class="ptab" style="text-indent: 20px">
+					If all else fails, you can download the card images from
+					<a
+						href="https://mega.nz/file/tDASVBgL#0jOstF3Rig6PSC7Y6T_VNTFgDkHngfdmSoePBo2YdJs"
+						>this link</a
+					>.
+				</p>
+			</div>
 
-<button class="collapsebar"><h3 id="question22">Q22: When I click "Add AI player" while hosting a LAN duel, how do I fix the blank dropdown or WindBot Ignite not joining? Can I give my own deck to the AI?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">There are a number of reasons for this:</p>
-	<p style="margin-top:20px;font-size:22px;text-indent:0px;margin-bottom:0em;">1) You are missing a dependency. Go back and read the <a href="download.html">requirements</a> carefully.<br><br>
-	2) The selected AI deck contains cards not allowed by the current banlist or card pool. Try using "don't check deck".<br><br>
-	3) You are trying to force the AI to play a custom rule. It only supports Master Rule 3 and later. You can force it to play in any rule by unchecking filter WindBots in the main settings but this is unsupported.<br><br>
-	4) You can force the AI to use any Deck in your game's deck folder by selecting the Feelin' Lucky Deck Engine when adding an AI to your Duel. (NOTE: The AI will NOT know how to actually play them well though, an actual script for the deck is still required for that!)<br><br>
-If you're interested in contributing to the AI, you can go <a href="https://github.com/ProjectIgnis/windbot/">here</a>.</p>
-	<img class="animated-gif" src="assets/img/how_to_add_ai.gif">
-</div>
+			<button class="collapsebar">
+				<h3 id="question22">
+					Q22: When I click "Add AI player" while hosting a LAN duel,
+					how do I fix the blank dropdown or WindBot Ignite not
+					joining? Can I give my own deck to the AI?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					There are a number of reasons for this:
+				</p>
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						text-indent: 0px;
+						margin-bottom: 0em;
+					"
+				>
+					1) You are missing a dependency. Go back and read the
+					<a href="download.html">requirements</a>
+					carefully.<br /><br />
+					2) The selected AI deck contains cards not allowed by the
+					current banlist or card pool. Try using "don't check
+					deck".<br /><br />
+					3) You are trying to force the AI to play a custom rule. It
+					only supports Master Rule 3 and later. You can force it to
+					play in any rule by unchecking filter WindBots in the main
+					settings but this is unsupported.<br /><br />
+					4) You can force the AI to use any Deck in your game's deck
+					folder by selecting the Feelin' Lucky Deck Engine when
+					adding an AI to your Duel. (NOTE: The AI will NOT know how
+					to actually play them well though, an actual script for the
+					deck is still required for that!)<br /><br />
+					If you're interested in contributing to the AI, you can go
+					<a href="https://github.com/ProjectIgnis/windbot/">here</a>.
+				</p>
+				<img class="animated-gif" src="assets/img/how_to_add_ai.gif" />
+			</div>
 
-<button class="collapsebar"><h3 id="question23">Q23: What is Bastion and how can I add it to my server?</h3></button>
-<div class="content">
-	<p class="ptab" style="margin-top:20px">Bastion is a free/libre and open-source Yu-Gi-Oh! card bot made by <a href="https://github.com/AlphaKretin">AlphaKretin#7990</a>. More information about how it works and how you can add it to your server can be found in <a href="https://github.com/AlphaKretin/bastion-bot/">its help file</a>.</p>
-</div>
+			<button class="collapsebar">
+				<h3 id="question23">
+					Q23: What is Bastion and how can I add it to my server?
+				</h3>
+			</button>
+			<div class="content">
+				<p class="ptab" style="margin-top: 20px">
+					Bastion is a free/libre and open-source Yu-Gi-Oh! card bot
+					made by
+					<a href="https://github.com/AlphaKretin">AlphaKretin#7990</a
+					>. More information about how it works and how you can add
+					it to your server can be found in
+					<a href="https://github.com/AlphaKretin/bastion-bot/"
+						>its help file</a
+					>.
+				</p>
+			</div>
 
-
-<!--<script>
+			<!--<script>
 function CopyToClipboard(id)
 {
 var r = document.createRange();
@@ -274,58 +880,62 @@ document.execCommand('copy');
 window.getSelection().removeAllRanges();
 }
 </script>-->
-<br>
-</div>
-<!--Button to return to top-->
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+			<br />
+		</div>
+		<!--Button to return to top-->
+		<button onclick="topFunction()" id="myBtn" title="Go to top">
+			Top
+		</button>
 
+		<!--External links relating to the project-->
+		<div id="footer-c"></div>
+		<script>
+			$(function () {
+				$("#footer-c").load("footer-aux.html");
+			});
+		</script>
 
-<!--External links relating to the project-->
-<div id="footer-c"></div>
-<script>
-$(function(){
-	$("#footer-c").load("footer-aux.html");
-});
-</script>
+		<!--JavaScript section-->
+		<script>
+			//Get the button
+			var mybutton = document.getElementById("myBtn");
+			//When the user scrolls down 25px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction();
+			};
+			function scrollFunction() {
+				if (
+					document.body.scrollTop > 25 ||
+					document.documentElement.scrollTop > 25
+				) {
+					mybutton.style.display = "block";
+				} else {
+					mybutton.style.display = "none";
+				}
+			}
+			//When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
 
+		<script>
+			//Handle the collapse bars
+			var coll = document.getElementsByClassName("collapsebar");
+			var i;
 
-<!--JavaScript section-->
-<script>
-//Get the button
-var mybutton = document.getElementById("myBtn");
-//When the user scrolls down 25px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
-	if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
-	mybutton.style.display = "block";
-	}
-	else {
-	mybutton.style.display = "none";
-	}
-}
-//When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
-}
-</script>
-
-<script>
-//Handle the collapse bars
-var coll = document.getElementsByClassName("collapsebar");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-	coll[i].addEventListener("click", function() {
-	this.classList.toggle("active");
-	var content = this.nextElementSibling;
-	if (content.style.maxHeight){
-		content.style.maxHeight = null;
-	} else {
-		content.style.maxHeight = content.scrollHeight + "px";
-	} 
-	});
-}
-</script>
-</body>
+			for (i = 0; i < coll.length; i++) {
+				coll[i].addEventListener("click", function () {
+					this.classList.toggle("active");
+					var content = this.nextElementSibling;
+					if (content.style.maxHeight) {
+						content.style.maxHeight = null;
+					} else {
+						content.style.maxHeight = content.scrollHeight + "px";
+					}
+				});
+			}
+		</script>
+	</body>
 </html>

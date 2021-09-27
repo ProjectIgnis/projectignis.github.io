@@ -1,212 +1,454 @@
 <!DOCTYPE html>
 <html id="gg">
-<head>
-<meta charset="utf-8">
-<!--Add the style sheet-->
-<link id="theme" rel="stylesheet" type="text/css" href="assets/css/dark-mode.css" />
-<script>
-function toggleTheme(sheet){
-  document.getElementById('theme').setAttribute('href', sheet);
-  localStorage.setItem("themePref", sheet);
-}
+	<head>
+		<meta charset="utf-8" />
+		<!--Add the style sheet-->
+		<link
+			id="theme"
+			rel="stylesheet"
+			type="text/css"
+			href="assets/css/dark-mode.css"
+		/>
+		<script>
+			function toggleTheme(sheet) {
+				document.getElementById("theme").setAttribute("href", sheet);
+				localStorage.setItem("themePref", sheet);
+			}
 
-window.onload = _ =>
- toggleTheme(
-  localStorage.getItem("themePref") || "assets/css/dark-mode.css"
- );
-</script>
-<link rel="icon" href="https://avatars.githubusercontent.com/u/58537850">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<style>
-.zoom {
-	transition: all .5s ease; /*Return back to normal */
-}
-.zoom:hover {
-	transform: translate3D(0,-1px,0) scale(1.17); /*Move up slightly and zoom in */
-}
-</style>
+			window.onload = (_) =>
+				toggleTheme(
+					localStorage.getItem("themePref") ||
+						"assets/css/dark-mode.css"
+				);
+		</script>
+		<link
+			rel="icon"
+			href="https://avatars.githubusercontent.com/u/58537850"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<style>
+			.zoom {
+				transition: all 0.5s ease; /*Return back to normal */
+			}
+			.zoom:hover {
+				transform: translate3D(0, -1px, 0) scale(1.17); /*Move up slightly and zoom in */
+			}
+		</style>
 
-<style>
-.collapsebar {
-	background-color: #777;
-	cursor: pointer;
-	padding: 18px;
-	width: 100%;
-	border: none;
-	text-align: middle;
-	outline: none;
-	font-size: 18px;
-}
-.active, .collapsebar:hover {
-	background-color: #555;
-}
-</style>
-<title>Project Ignis</title>
-</head>
+		<style>
+			.collapsebar {
+				background-color: #777;
+				cursor: pointer;
+				padding: 18px;
+				width: 100%;
+				border: none;
+				text-align: middle;
+				outline: none;
+				font-size: 18px;
+			}
+			.active,
+			.collapsebar:hover {
+				background-color: #555;
+			}
+		</style>
+		<title>Project Ignis</title>
+	</head>
 
+	<body id="vb">
+		<!--Links topnav-->
+		<div class="topnav">
+			<div style="float: left; margin-left: 4px">
+				<button
+					class="btnStyle"
+					onclick="toggleTheme('assets/css/dark-mode.css')"
+				>
+					Dark Mode
+				</button>
+				<button
+					class="btnStyle"
+					onclick="toggleTheme('assets/css/blind-mode.css')"
+				>
+					Light Mode
+				</button>
+			</div>
+			<!--<a href="#tools">Tools</a>-->
+			<a class="active" href="download.html">Download</a>
+			<a href="stats.html">Stats</a>
+			<a href="faq.html">FAQ</a>
+			<!--<a href="#news">News</a>-->
+			<!--<a href="#forums">Forums</a>-->
+			<a href="index.html">Home</a>
+		</div>
 
+		<!--Info-->
+		<div class="bgcolor">
+			<p class="ptab" style="padding-top: 6%">
+				Please do not redistribute these download links. If you download
+				the simulator from somewhere other than this website or our
+				official Discord server, then we cannot guarantee its legitimacy
+				or safety.
+			</p>
+			<h3 style="text-align: center">General system requirements</h3>
+			<p style="padding-bottom: 4%; padding-top: 1.5%; font-size: 20px">
+				1 GB free disk space recommended for resource files, images, and
+				automatic updates.<br /><br />1 GB free RAM recommended, though
+				EDOPro is not expected to exceed 300 MB of memory unless the
+				restart button is spammed.
+			</p>
 
-<body id="vb">
-<!--Links topnav-->
-<div class="topnav">
-	<div style="float:left;margin-left:4px;">
-	<button class="btnStyle" onclick="toggleTheme('assets/css/dark-mode.css')">Dark Mode</button>
-	<button class="btnStyle" onclick="toggleTheme('assets/css/blind-mode.css')">Light Mode</button>
-	</div>
-	<!--<a href="#tools">Tools</a>-->
-	<a class="active" href="download.html">Download</a>
-	<a href="stats.html">Stats</a>
-	<a href="faq.html">FAQ</a>
-	<!--<a href="#news">News</a>-->
-	<!--<a href="#forums">Forums</a>-->
-	<a href="index.html">Home</a>
-</div>
+			<!--Windows-->
+			<button class="collapsebar">Windows</button>
+			<div class="content">
+				<img src="assets/img/windows_logo.png" />
+				<h3
+					style="
+						text-align: center;
+						text-indent: 0px;
+						margin-bottom: 1px;
+					"
+				>
+					Requirements
+				</h3>
+				<hr />
+				<p style="text-indent: 0px; margin-top: 20px; font-size: 22px">
+					● Windows 2000 Service Pack 1 or later, 32-bit or 64-bit<br />
+					● DirectX 9 or OpenGL 1.0+ supporting graphics driver<br />
+					● <code>.NET Framework 4</code> to use the AI (pre-installed
+					on Windows 10)
+				</p>
+				<h3
+					style="
+						text-align: center;
+						text-indent: 0px;
+						margin-bottom: 1px;
+					"
+				>
+					Instructions
+				</h3>
+				<hr />
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						margin-bottom: 0em;
+					"
+				>
+					Select one of the following download options. They have the
+					same features and customizability, but the installer is the
+					easiest to set up and strongly recommended. Your antivirus
+					may flag these downloads, EDOPro, or WindBot as malware, but
+					these are false positives. Our software components are
+					free/libre and open-source on GitHub.
+					<br /><br />
+					<a
+						href="https://mega.nz/file/JDQn3CbZ#FSfa78JEaziuFW961y68XW1910OCdeKlg1SwA2JTEPY"
+						>Standard installer (60.8 MB)</a
+					>
+				</p>
 
+				<p class="ptab" style="font-size: 16px; text-indent: 0">
+					SHA256:
+					<code
+						>201e3c3d52c8f92776fb327b7badfe68531ad7788e5a0b7352bb09536b7f497f</code
+					>
+				</p>
+				<p style="margin-top: 20px; font-size: 22px">
+					Download and run the above <code>.exe</code> to install to
+					<code>C:\ProjectIgnis</code>. After it is finished, you
+					should see shortcuts on your desktop and Start Menu.
+				</p>
+				<!--Windows - advanced users-->
+				<details>
+					<p
+						class="ptab"
+						style="
+							padding-top: 5px;
+							font-size: 20px;
+							margin-bottom: 0em;
+						"
+					>
+						Do not extract to a read-only location such as Program
+						Files.<br /><br /><a
+							href="https://mega.nz/file/hLpyHYpI#PjN_zzKkKJhd6JMJdbY7GZzpWNIs8R-UnlmUj8VqEW4"
+							>Self-extracting archive (59.3 MB)</a
+						>
+					</p>
+					<p class="ptab" style="font-size: 16px; text-indent: 0">
+						SHA256:
+						<code
+							>b9a9d812047e87e76063a2f52cf372fa2324e988d02ae24481c71af59fea485e</code
+						>
+					</p>
+					<p
+						class="ptab"
+						style="
+							padding-top: 5px;
+							font-size: 20px;
+							margin-bottom: 0em;
+						"
+					>
+						<br /><a
+							href="https://mega.nz/file/NWp3QAjA#RBtYuVpOSYJ4unsOsNwUdfDY937lrK4ko350wqVnARY"
+							>ZIP (78.4 MB)</a
+						>
+					</p>
+					<p class="ptab" style="font-size: 16px; text-indent: 0">
+						SHA256:
+						<code
+							>071cfb19fa1d1d66b7499ff2b7f62bcbc98e68b0a1a5cb07fdaf0f1e7cba050e</code
+						>
+					</p>
+					<summary>For advanced users only</summary>
+				</details>
+				<br /><br /><br /><br /><br /><br /><br /><br />
+			</div>
 
-<!--Info-->
-<div class="bgcolor">
-<p class="ptab" style="padding-top: 6%;">Please do not redistribute these download links. If you download the simulator from somewhere other than this website or our official Discord server, then we cannot guarantee its legitimacy or safety.</p>
-<h3 style="text-align:center;">General system requirements</h3>
-<p style="padding-bottom:4%;padding-top:1.5%;font-size:20px;">1 GB free disk space recommended for resource files, images, and automatic updates.<br><br>1 GB free RAM recommended, though EDOPro is not expected to exceed 300 MB of memory unless the restart button is spammed.
-</p>
+			<!--Mac-->
+			<button class="collapsebar">Mac</button>
+			<div class="content">
+				<img src="/assets/img/macos_logo.png" />
+				<h3
+					style="
+						text-align: center;
+						text-indent: 0px;
+						margin-bottom: 1px;
+					"
+				>
+					Requirements
+				</h3>
+				<hr />
+				<p style="text-indent: 0px; margin-top: 20px; font-size: 22px">
+					● macOS 10.11 or later<br />
+					● OpenGL 1.0+ supporting graphics card<br />
+					● For AI support, install
+					<a
+						href="https://www.mono-project.com/download/stable/#download-mac"
+						>Mono</a
+					>
+					(either download option is fine)
+				</p>
+				<h3
+					style="
+						text-align: center;
+						text-indent: 0px;
+						margin-bottom: 1px;
+					"
+				>
+					Instructions
+				</h3>
+				<hr />
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						margin-bottom: 0em;
+					"
+				>
+					Download and run the following. You may need to allow
+					unidentified developers in your System Preferences or
+					right-click and hit Open instead. After installation, you
+					should see an EDOPro icon in Launchpad.
+					<br /><br />
+					<a
+						href="https://mega.nz/file/segB2YwL#-um1Q99JlxddQlfPdkwj97SRXnXLa5aQpHLeGFoZVTE"
+						>Installer (69.2 MB)</a
+					>
+				</p>
 
+				<p class="ptab" style="font-size: 16px; text-indent: 0">
+					SHA256:
+					<code
+						>9c3babae16cd6c194616976ec2a70530ef99e4c207b8177e1bbdb411b5e97b73</code
+					>
+				</p>
+			</div>
 
-<!--Windows-->
-<button class="collapsebar">Windows</button>
-<div class="content"><img src="assets/img/windows_logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
-<p style="text-indent:0px;margin-top:20px;font-size:22px;">
-● Windows 2000 Service Pack 1 or later, 32-bit or 64-bit<br>
-● DirectX 9 or OpenGL 1.0+ supporting graphics driver<br>
-● <code>.NET Framework 4</code> to use the AI (pre-installed on Windows 10)
-</p>
-<h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Instructions</h3>
-<hr>
-<p style="margin-top:20px;font-size: 22px;margin-bottom: 0em;">
-Select one of the following download options. They have the same features and customizability, but the installer is the easiest to set up and strongly recommended. Your antivirus may flag these downloads, EDOPro, or WindBot as malware, but these are false positives. Our software components are free/libre and open-source on GitHub.
-<br><br>
-<a href="https://mega.nz/file/JDQn3CbZ#FSfa78JEaziuFW961y68XW1910OCdeKlg1SwA2JTEPY">Standard installer (60.8 MB)</a><p class="ptab" style="font-size: 16px;text-indent:0;">SHA256: <code>201e3c3d52c8f92776fb327b7badfe68531ad7788e5a0b7352bb09536b7f497f</code></p>
-<p style="margin-top:20px;font-size: 22px;">Download and run the above <code>.exe</code> to install to <code>C:\ProjectIgnis</code>. After it is finished, you should see shortcuts on your desktop and Start Menu.</p>
-<!--Windows - advanced users-->
-</p>
-<details>
-	<p class="ptab" style="padding-top:5px;font-size: 20px;margin-bottom: 0em;">Do not extract to a read-only location such as Program Files.<br><br><a href="https://mega.nz/file/hLpyHYpI#PjN_zzKkKJhd6JMJdbY7GZzpWNIs8R-UnlmUj8VqEW4">Self-extracting archive (59.3 MB)</a>
-	<p class="ptab" style="font-size: 16px;text-indent:0;">SHA256: <code>b9a9d812047e87e76063a2f52cf372fa2324e988d02ae24481c71af59fea485e</code></p>
-	<p class="ptab" style="padding-top:5px;font-size: 20px;margin-bottom: 0em;"><br><a href="https://mega.nz/file/NWp3QAjA#RBtYuVpOSYJ4unsOsNwUdfDY937lrK4ko350wqVnARY">ZIP (78.4 MB)</a>
-	<p class="ptab" style="font-size: 16px;text-indent:0;">SHA256: <code>071cfb19fa1d1d66b7499ff2b7f62bcbc98e68b0a1a5cb07fdaf0f1e7cba050e</code></p>
-	<summary>For advanced users only</summary>
-</details>
-<br><br><br><br><br><br><br><br>
-</div>
+			<!--Linux-->
+			<button class="collapsebar">Linux</button>
+			<div class="content">
+				<img src="/assets/img/linux_logo.png" />
+				<h3
+					style="
+						text-align: center;
+						text-indent: 0px;
+						margin-bottom: 1px;
+					"
+				>
+					Requirements
+				</h3>
+				<hr />
+				<p style="text-indent: 0px; margin-top: 20px; font-size: 22px">
+					● 64-bit GNU/Linux with X11 and glibc 2.27+ (e.g. Debian
+					10+, Ubuntu 18.04+, Fedora, CentOS 8+, rolling release
+					distros like Arch)<br />
+					● OpenGL 1.0+ supporting graphics driver (e.g. mesa
+					20.0.6+)<br />
+					● For AI support, install the
+					<a
+						href="https://www.mono-project.com/download/stable/#download-lin"
+						>mono-complete package</a
+					>
+				</p>
+				<h3
+					style="
+						text-align: center;
+						text-indent: 0px;
+						margin-bottom: 1px;
+					"
+				>
+					Instructions
+				</h3>
+				<hr />
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						text-indent: 0px;
+						margin-bottom: 0em;
+					"
+				>
+					1) Download and extract the <code>.tar.gz</code> to your
+					preferred install location.<br /><br />
+					2) Optionally run <code>./install.sh</code> to create
+					<code>.desktop</code> files for the current user's launcher.
+					There should be no output if successful. Do <b>not</b> run
+					as root (sudo/doas).<br /><br />
+					3) You can always start the game by running
+					<code>./EDOPro</code> from the extracted folder without
+					desktop files. <br /><br />
+					<a
+						href="https://mega.nz/file/9a4C3arS#3W3X4usmctzpv5XfLiJD4PKsiOPRhTde0GZ2TgGrylM"
+						>Game folder .tar.gz (81.8 MB)</a
+					>
+				</p>
 
+				<p class="ptab" style="font-size: 16px; text-indent: 0">
+					SHA256:
+					<code
+						>01d6ac0c1330fe2e0c15dddeffbd7111f8f75a942dd16b4cc15880d0d7184147</code
+					>
+				</p>
+				<h3
+					style="
+						text-align: center;
+						text-indent: 0px;
+						margin-bottom: 1px;
+					"
+				>
+					Note
+				</h3>
+				<hr />
+				<p class="ptab" style="margin-top: 20px; font-size: 22px">
+					<b
+						>Staff do not have Chromebooks so we are unable to
+						assist further</b
+					>, but if you install a compatible Linux distribution on
+					Chromebook, this binary may work.
+				</p>
+			</div>
 
-<!--Mac-->
-<button class="collapsebar">Mac</button>
-<div class="content"><img src="/assets/img/macos_logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
-<p style="text-indent:0px;margin-top:20px;font-size:22px;">
-● macOS 10.11 or later<br>
-● OpenGL 1.0+ supporting graphics card<br>
-● For AI support, install <a href="https://www.mono-project.com/download/stable/#download-mac">Mono</a> (either download option is fine)
-</p>
-<h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Instructions</h3>
-<hr>
-<p style="margin-top:20px;font-size: 22px;margin-bottom: 0em;">
-Download and run the following. You may need to allow unidentified developers in your System Preferences or right-click and hit Open instead. After installation, you should see an EDOPro icon in Launchpad.
-<br><br>
-<a href="https://mega.nz/file/segB2YwL#-um1Q99JlxddQlfPdkwj97SRXnXLa5aQpHLeGFoZVTE">Installer (69.2 MB)</a>
-<p class="ptab" style="font-size: 16px;text-indent:0;">SHA256: <code>9c3babae16cd6c194616976ec2a70530ef99e4c207b8177e1bbdb411b5e97b73</code></p>
-</p></div>
+			<!--Android-->
+			<button class="collapsebar">Android</button>
+			<div class="content">
+				<img src="/assets/img/android_logo.png" />
+				<h3
+					style="
+						text-align: center;
+						text-indent: 0px;
+						margin-bottom: 1px;
+					"
+				>
+					Requirements
+				</h3>
+				<hr />
+				<p style="text-indent: 0px; margin-top: 20px; font-size: 22px">
+					● Android 4.1 "Jelly Bean" or newer
+				</p>
+				<hr />
+				<p
+					style="
+						margin-top: 20px;
+						font-size: 22px;
+						margin-bottom: 0em;
+						text-indent: 0px;
+					"
+				>
+					<a
+						href="https://mega.nz/file/9b4hmSrT#nZkdkTCE87cMc2Ceql1DjBd5I3jEeHMGn-qlREMbRds"
+						>APK (102.8 MB)</a
+					>
+				</p>
 
+				<p class="ptab" style="font-size: 16px; text-indent: 0">
+					SHA256:
+					<code
+						>a297e22bc15e9baa3e51867d9ffc672a999de2ee5ad7b4d34222298e4ce31563</code
+					>
+				</p>
+			</div>
+			<br />
+		</div>
 
-<!--Linux-->
-<button class="collapsebar">Linux</button>
-<div class="content"><img src="/assets/img/linux_logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
-<p style="text-indent:0px;margin-top:20px;font-size:22px;">
-● 64-bit GNU/Linux with X11 and glibc 2.27+ (e.g. Debian 10+, Ubuntu 18.04+, Fedora, CentOS 8+, rolling release distros like Arch)<br>
-● OpenGL 1.0+ supporting graphics driver (e.g. mesa 20.0.6+)<br>
-● For AI support, install the <a href="https://www.mono-project.com/download/stable/#download-lin">mono-complete package</a>
-</p>
-<h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Instructions</h3>
-<hr>
-<p style="margin-top:20px;font-size:22px;text-indent:0px;margin-bottom:0em;">
-1) Download and extract the <code>.tar.gz</code> to your preferred install location.<br><br>
-2) Optionally run <code>./install.sh</code> to create <code>.desktop</code> files for the current user's launcher. There should be no output if successful. Do <b>not</b> run as root (sudo/doas).<br><br>
-3) You can always start the game by running <code>./EDOPro</code> from the extracted folder without desktop files.
-<br><br>
-<a href="https://mega.nz/file/9a4C3arS#3W3X4usmctzpv5XfLiJD4PKsiOPRhTde0GZ2TgGrylM">Game folder .tar.gz (81.8 MB)</a>
-<p class="ptab" style="font-size: 16px;text-indent:0;">SHA256: <code>01d6ac0c1330fe2e0c15dddeffbd7111f8f75a942dd16b4cc15880d0d7184147</code></p>
-</p>
-<h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Note</h3>
-<hr>
-<p class="ptab" style="margin-top:20px;font-size:22px;"><b>Staff do not have Chromebooks so we are unable to assist further</b>, but if you install a compatible Linux distribution on Chromebook, this binary may work.</p>
-</div>
+		<!--Button to return to top-->
+		<button onclick="topFunction()" id="myBtn" title="Go to top">
+			Top
+		</button>
 
+		<!--External links relating to the project-->
+		<div id="footer-c"></div>
+		<script>
+			$(function () {
+				$("#footer-c").load("footer-aux.html");
+			});
+		</script>
 
-<!--Android-->
-<button class="collapsebar">Android</button>
-<div class="content"><img src="/assets/img/android_logo.png"><h3 style="text-align:center;text-indent:0px;margin-bottom:1px;">Requirements</h3><hr>
-<p style="text-indent:0px;margin-top:20px;font-size:22px;">
-● Android 4.1 "Jelly Bean" or newer
-</p><hr>
-<p style="margin-top:20px;font-size:22px;margin-bottom:0em;text-indent:0px">
-<a href="https://mega.nz/file/9b4hmSrT#nZkdkTCE87cMc2Ceql1DjBd5I3jEeHMGn-qlREMbRds">APK (102.8 MB)</a>
-<p class="ptab" style="font-size: 16px;text-indent:0;">SHA256: <code>a297e22bc15e9baa3e51867d9ffc672a999de2ee5ad7b4d34222298e4ce31563</code></p>
-</div>
-<br>
-</div>
+		<!--JavaScript section-->
+		<script>
+			//Get the button
+			var mybutton = document.getElementById("myBtn");
 
+			//When the user scrolls down 25px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction();
+			};
+			function scrollFunction() {
+				if (
+					document.body.scrollTop > 25 ||
+					document.documentElement.scrollTop > 25
+				) {
+					mybutton.style.display = "block";
+				} else {
+					mybutton.style.display = "none";
+				}
+			}
 
-<!--Button to return to top-->
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+			//When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
 
-<!--External links relating to the project-->
-<div id="footer-c"></div>
-<script>
-$(function(){
-	$("#footer-c").load("footer-aux.html");
-});
-</script>
+		<script>
+			//Handle the collapse bars
+			var coll = document.getElementsByClassName("collapsebar");
+			var i;
 
-
-<!--JavaScript section-->
-<script>
-//Get the button
-var mybutton = document.getElementById("myBtn");
-
-//When the user scrolls down 25px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
-	if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
-	mybutton.style.display = "block";
-	}
-	else {
-	mybutton.style.display = "none";
-	}
-}
-
-//When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
-}
-</script>
-
-<script>
-//Handle the collapse bars
-var coll = document.getElementsByClassName("collapsebar");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-	coll[i].addEventListener("click", function() {
-	this.classList.toggle("active");
-	var content = this.nextElementSibling;
-	if (content.style.maxHeight){
-		content.style.maxHeight = null;
-	} else {
-		content.style.maxHeight = content.scrollHeight + "px";
-	} 
-	});
-}
-</script>
-</body>
+			for (i = 0; i < coll.length; i++) {
+				coll[i].addEventListener("click", function () {
+					this.classList.toggle("active");
+					var content = this.nextElementSibling;
+					if (content.style.maxHeight) {
+						content.style.maxHeight = null;
+					} else {
+						content.style.maxHeight = content.scrollHeight + "px";
+					}
+				});
+			}
+		</script>
+	</body>
 </html>

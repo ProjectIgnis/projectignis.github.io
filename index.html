@@ -1,101 +1,150 @@
 <!DOCTYPE html>
 <html id="gg">
-<head>
-<meta charset="utf-8">
-<!--Add the style sheet-->
-<link id="theme" rel="stylesheet" type="text/css" href="assets/css/dark-mode.css" />
-<script>
-function toggleTheme(sheet){
-  document.getElementById('theme').setAttribute('href', sheet);
-  localStorage.setItem("themePref", sheet);
-}
+	<head>
+		<meta charset="utf-8" />
+		<!--Add the style sheet-->
+		<link
+			id="theme"
+			rel="stylesheet"
+			type="text/css"
+			href="assets/css/dark-mode.css"
+		/>
+		<script>
+			function toggleTheme(sheet) {
+				document.getElementById("theme").setAttribute("href", sheet);
+				localStorage.setItem("themePref", sheet);
+			}
 
-window.onload = _ =>
- toggleTheme(
-  localStorage.getItem("themePref") || "assets/css/dark-mode.css"
- );
-</script>
-<link rel="icon" href="https://avatars.githubusercontent.com/u/58537850">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<style>
-.zoom {
-	transition: all .5s ease; /*Return back to normal */
-}
-.zoom:hover {
-	transform: translate3D(0,-1px,0) scale(1.17); /* Move up slightly and zoom in */
-}
-</style>
+			window.onload = (_) =>
+				toggleTheme(
+					localStorage.getItem("themePref") ||
+						"assets/css/dark-mode.css"
+				);
+		</script>
+		<link
+			rel="icon"
+			href="https://avatars.githubusercontent.com/u/58537850"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<style>
+			.zoom {
+				transition: all 0.5s ease; /*Return back to normal */
+			}
+			.zoom:hover {
+				transform: translate3D(0, -1px, 0) scale(1.17); /* Move up slightly and zoom in */
+			}
+		</style>
 
-<title>Project Ignis</title>
-</head>
+		<title>Project Ignis</title>
+	</head>
 
+	<body id="vb">
+		<!--Links topnav-->
+		<div class="topnav">
+			<div style="float: left; margin-left: 4px">
+				<button
+					class="btnStyle"
+					onclick="toggleTheme('assets/css/dark-mode.css')"
+				>
+					Dark Mode
+				</button>
+				<button
+					class="btnStyle"
+					onclick="toggleTheme('assets/css/blind-mode.css')"
+				>
+					Light Mode
+				</button>
+			</div>
+			<!--<a href="#tools">Tools</a>-->
+			<a href="download.html">Download</a>
+			<a href="stats.html">Stats</a>
+			<a href="faq.html">FAQ</a>
+			<!--<a href="#news">News</a>-->
+			<!--<a href="#forums">Forums</a>-->
+			<a class="active" href="index.html">Home</a>
+		</div>
 
+		<!--About-->
+		<div class="bgcolor">
+			<!---->
+			<div style="vertical-align: bottom; text-align: center">
+				<img
+					src="assets/img/ignis_logo.png"
+					style="width: 250px; height: auto; padding-top: 6%"
+				/>
+			</div>
+			<p class="ptab" style="padding-top: 2%">
+				Hello, we are the Project Ignis team and our flagship is EDOPro,
+				the open-source automatic duel simulator!
+			</p>
+			<p class="ptab">
+				Although we may have suddenly appeared, we were formerly the
+				team behind YGOPro Percy. We are happy to present you with
+				EDOPro, an evolution of the YGOPro system, available on all
+				major desktop platforms (Windows, Mac, Linux), with a plethora
+				of new features and bug fixes.
+			</p>
+			<p class="ptab">
+				We are an international collaboration, staffed entirely by
+				volunteers and we welcome support on our projects. We have come
+				so far, as originally, we were just scattered duelists who used
+				the former YGOPro Percy. As time went on, we grew to became
+				members of the community, to the point of maintaining our own
+				client for the simulator we love that brought us together.
+			</p>
+			<p class="ptab">
+				Ignis is the fire and light of knowledge passed from the gods to
+				humanity in Greco-Roman mythology. This represents our vision
+				for all of our projects and work, and recognizes the
+				contribution of every individual on the team.
+			</p>
+			<br />
+			<hr />
+			<br />
+			<p class="ptab" style="margin-top: 20px">The Ignis Team</p>
+			<br />
+		</div>
 
-<body id="vb">
-<!--Links topnav-->
-<div class="topnav">
-	<div style="float:left;margin-left:4px;">
-	<button class="btnStyle" onclick="toggleTheme('assets/css/dark-mode.css')">Dark Mode</button>
-	<button class="btnStyle" onclick="toggleTheme('assets/css/blind-mode.css')">Light Mode</button>
-	</div>
-	<!--<a href="#tools">Tools</a>-->
-	<a href="download.html">Download</a>
-	<a href="stats.html">Stats</a>
-	<a href="faq.html">FAQ</a>
-	<!--<a href="#news">News</a>-->
-	<!--<a href="#forums">Forums</a>-->
-	<a class="active" href="index.html">Home</a>
-</div>
+		<!--Button to return to top-->
+		<button onclick="topFunction()" id="myBtn" title="Go to top">
+			Top
+		</button>
 
+		<!--External links relating to the project-->
+		<div id="footer-c"></div>
+		<script>
+			$(function () {
+				$("#footer-c").load("footer-aux.html");
+			});
+		</script>
 
-<!--About-->
-<div class="bgcolor">
-<!----><div style="vertical-align:bottom;text-align:center;"><img src="assets/img/ignis_logo.png" style="width:250px;height:auto;padding-top:6%;"></div>
-<p class="ptab" style="padding-top:2%;">Hello, we are the Project Ignis team and our flagship is EDOPro, the open-source automatic duel simulator!</p>
-<p class="ptab">
-Although we may have suddenly appeared, we were formerly the team behind YGOPro Percy. We are happy to present you with EDOPro, an evolution of the YGOPro system, available on all major desktop platforms (Windows, Mac, Linux), with a plethora of new features and bug fixes.</p>
-<p class="ptab">
-We are an international collaboration, staffed entirely by volunteers and we welcome support on our projects. We have come so far, as originally, we were just scattered duelists who used the former YGOPro Percy. As time went on, we grew to became members of the community, to the point of maintaining our own client for the simulator we love that brought us together.</p>
-<p class="ptab">
-Ignis is the fire and light of knowledge passed from the gods to humanity in Greco-Roman mythology. This represents our vision for all of our projects and work, and recognizes the contribution of every individual on the team.</p>
-<br><hr><br>
-<p class="ptab" style="margin-top:20px">The Ignis Team</p><br>
-</div>
-
-
-<!--Button to return to top-->
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-
-<!--External links relating to the project-->
-<div id="footer-c"></div>
-<script>
-$(function(){
-	$("#footer-c").load("footer-aux.html");
-});
-</script>
-
-
-<!--JavaScript section-->
-<script>
-//Get the button
-var mybutton = document.getElementById("myBtn");
-//When the user scrolls down 25px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
-	if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
-	mybutton.style.display = "block";
-	}
-	else {
-	mybutton.style.display = "none";
-	}
-}
-//When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
-}
-</script>
-</body>
+		<!--JavaScript section-->
+		<script>
+			//Get the button
+			var mybutton = document.getElementById("myBtn");
+			//When the user scrolls down 25px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction();
+			};
+			function scrollFunction() {
+				if (
+					document.body.scrollTop > 25 ||
+					document.documentElement.scrollTop > 25
+				) {
+					mybutton.style.display = "block";
+				} else {
+					mybutton.style.display = "none";
+				}
+			}
+			//When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+	</body>
 </html>
