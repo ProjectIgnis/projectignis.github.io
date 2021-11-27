@@ -61,6 +61,15 @@
 	color: white;
 }
 
+/*Don't add padding for top or bottom, a body with multiple lines and <code> usage will sometimes overlap, which looks awful*/
+code {
+	background-color: rgba(5, 5, 5, 0.65);
+	padding-left: 4px;
+	padding-right: 4px;
+	border-radius: 5px;
+}
+
+/*Handles the background color of the margin space*/
 #vb {
 	background-color: #24292e;
 	font-family: sans-serif;
@@ -109,7 +118,7 @@ html {
 	color: #c8ccd1;
 }
 
-/*Handles the blue background and forming margins*/
+/*Handles the background of the body, also forming margins*/
 .bgcolor {
 	background-color: #0d171d;
 	font-size: 25px;
@@ -125,6 +134,7 @@ html {
 /*Demo*/
 .topnav {
 	overflow: hidden;
+	/*Direction, top half, bottom half*/
 	background-image: linear-gradient(180deg, #333, #202020);
 	background-color: #333; /*In case browser doesn't support gradient*/
 	position: sticky;
@@ -271,12 +281,19 @@ ul.indented{
 	list-style-type: initial;
 	list-style-position: outside;
 }
-/* html,body height */
+/* html, body height */
 html,
 body {
 	height: 100%;
 	background-color: #e9e9e9;
 	font-family: RobotoSlab-Regular;
+}
+.collapsebar {
+	background-color: #777;
+}
+.active,
+.collapsebar:hover {
+	background-color: #555;
 }
 body p{
 	color: #797979;
