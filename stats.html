@@ -131,6 +131,7 @@
 						eu_comp: [],
 						us_casual: [],
 						us_comp: [],
+						cn_central: [],
 						total: [],
 					};
 					// Probably a terrible way of doing it, but who cares, it works™.
@@ -140,17 +141,20 @@
 						const eu_comp_elem = parseInt(csv_array[i][2]);
 						const us_casual_elem = parseInt(csv_array[i][3]);
 						const us_comp_elem = parseInt(csv_array[i][4]);
+						const cn_central_elem = parseInt(csv_array[i][5]);
 						const total =
-							eu_casual_elem +
-							eu_comp_elem +
-							us_casual_elem +
-							us_comp_elem;
+							Math.max(0, eu_casual_elem) +
+							Math.max(0, eu_comp_elem) +
+							Math.max(0, us_casual_elem) +
+							Math.max(0, us_comp_elem) +
+							Math.max(0, cn_central_elem);
 						if (total > max_total) max_total = total;
 						labels.push(csv_array[i][0] + " UTC");
 						data.eu_casual.push(eu_casual_elem);
 						data.eu_comp.push(eu_comp_elem);
 						data.us_casual.push(us_casual_elem);
 						data.us_comp.push(us_comp_elem);
+						data.cn_central.push(cn_central_elem < 0 ? NaN : cn_central_elem);
 						data.total.push(total);
 					}
 					// Time to plot, baby!
@@ -193,6 +197,13 @@
 								indexAxis: "x",
 								label: "US West (Competitive)",
 							},
+							{
+								backgroundColor: "rgba(92, 16, 220, 0.4)",
+								borderColor: "rgba(92, 16, 220, 0.8)",
+								data: data.cn_central,
+								indexAxis: "x",
+								label: "Asia Central (Casual/Competitive)",
+							},
 						],
 					};
 					const zoom_opts = {
@@ -232,7 +243,8 @@
 									},
 									subtitle: {
 										display: true,
-										text: "Most players ever online was " + max_total, /*Also log the timestamp of this?*/
+										// TODO: Also log the timestamp of this?
+										text: "Most players ever online was " + max_total,
 									},
 									zoom: zoom_opts,
 									tooltip: {
