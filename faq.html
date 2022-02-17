@@ -95,13 +95,10 @@
 				This is a list of Frequently Asked Questions concerning Project
 				Ignis: EDOPro. For a full list of features, check out the
 				<code>README</code> file in your game's folder.
+				Clicking on a question will automatically copy a link to that question.
 			</p>
-
-			<!--Table of content, dormant
-<a href="#question0">Q0: How do I pronounce EDOPro?</a><br/>-->
-
 			<button class="collapsebar">
-				<h3>Q0: How do I pronounce EDOPro?</h3>
+				<h3 id="question0">Q0: How do I pronounce EDOPro?</h3>
 			</button>
 			<div class="content">
 				<p class="ptab" style="margin-top: 20px" id="q0">
@@ -595,7 +592,7 @@
 
 			<button class="collapsebar">
 				<h3 id="question16">
-					Q16: How do I find Rush duel cards or Speed Duel Skills?
+					Q16: How do I find Rush Duel cards or Speed Duel Skills?
 				</h3>
 			</button>
 			<div class="content">
@@ -847,18 +844,26 @@
 					>.
 				</p>
 			</div>
+		<!--This will copy the link for the Q that the user clicks on, to their clipboard-->
+		<script>
+		const url ='projectignis.github.io/faq.html#';
 
-			<!--<script>
-function CopyToClipboard(id)
-{
-var r = document.createRange();
-r.selectNode(document.getElementById(id));
-window.getSelection().removeAllRanges();
-window.getSelection().addRange(r);
-document.execCommand('copy');
-window.getSelection().removeAllRanges();
-}
-</script>-->
+		const copyToClipboard = str => {
+		const el = document.createElement('textarea');
+		el.value = str;
+		document.body.appendChild(el);
+		el.select();
+		document.execCommand('copy');
+		document.body.removeChild(el);
+		};
+
+		$("h3").click(function() {
+			var q = this.id
+			let myUrl = url + q;
+			copyToClipboard( myUrl );
+// 			alert(myUrl)
+		});
+		</script>
 			<br />
 		</div>
 		<!--Button to return to top-->
