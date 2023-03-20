@@ -114,7 +114,7 @@
 				document.documentElement.scrollTop = 0;
 			}
 			// Charting stuff
-			fetch("https://eu.projectignis.org:44461/stats.csv")
+			fetch("https://eu.projectignis.org/stats/dueling-users-stats.csv")
 				.then((response) => {
 					if (response.status >= 200 && response.status <= 299) {
 						return response.text();
@@ -129,8 +129,8 @@
 					var data = {
 						eu_casual: [],
 						eu_comp: [],
-						us_casual: [],
-						us_comp: [],
+						na_casual: [],
+						na_comp: [],
 						cn_central: [],
 						total: [],
 					};
@@ -139,21 +139,21 @@
 					for (var i = 1; i < csv_array.length; i++) {
 						const eu_casual_elem = parseInt(csv_array[i][1]);
 						const eu_comp_elem = parseInt(csv_array[i][2]);
-						const us_casual_elem = parseInt(csv_array[i][3]);
-						const us_comp_elem = parseInt(csv_array[i][4]);
+						const na_casual_elem = parseInt(csv_array[i][3]);
+						const na_comp_elem = parseInt(csv_array[i][4]);
 						const cn_central_elem = parseInt(csv_array[i][5]);
 						const total =
 							Math.max(0, eu_casual_elem) +
 							Math.max(0, eu_comp_elem) +
-							Math.max(0, us_casual_elem) +
-							Math.max(0, us_comp_elem) +
+							Math.max(0, na_casual_elem) +
+							Math.max(0, na_comp_elem) +
 							Math.max(0, cn_central_elem);
 						if (total > max_total) max_total = total;
 						labels.push(csv_array[i][0] + " UTC");
 						data.eu_casual.push(eu_casual_elem);
 						data.eu_comp.push(eu_comp_elem);
-						data.us_casual.push(us_casual_elem);
-						data.us_comp.push(us_comp_elem);
+						data.na_casual.push(na_casual_elem);
+						data.na_comp.push(na_comp_elem);
 						data.cn_central.push(cn_central_elem < 0 ? NaN : cn_central_elem);
 						data.total.push(total);
 					}
@@ -186,16 +186,16 @@
 							{
 								backgroundColor: "rgba(55, 192, 192, 0.4)",
 								borderColor: "rgba(55, 192, 192, 0.8)",
-								data: data.us_casual,
+								data: data.na_casual,
 								indexAxis: "x",
-								label: "US West (Casual)",
+								label: "NA West (Casual)",
 							},
 							{
 								backgroundColor: "rgba(54, 82, 205, 0.4)",
 								borderColor: "rgba(54, 82, 205, 0.8)",
-								data: data.us_comp,
+								data: data.na_comp,
 								indexAxis: "x",
-								label: "US West (Competitive)",
+								label: "NA West (Competitive)",
 							},
 							{
 								backgroundColor: "rgba(45, 200, 22, 0.4)",
